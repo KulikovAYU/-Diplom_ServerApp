@@ -5,33 +5,35 @@ namespace FC_EMDB
 
     public class Training
     {
-        
-
         public Training(TrainingBuilder trainingBuilder)
         {
-            mStartTime = trainingBuilder.GetStartTime();
-            mEndDime = trainingBuilder.GetEndTime();
-            mTrainingName = trainingBuilder.GetTrainingName();
-            mbIsFinished = trainingBuilder.GetIsFinished();
-            mGymName = trainingBuilder.GetGymName();
-            mLevelName = trainingBuilder.GetLevelName();
-            mCoachName = trainingBuilder.GetCoachFullname();
-            mDescription = trainingBuilder.GetDescription();
-            mbIsReplaced = trainingBuilder.GetIsReplacedStatus();
-            mbIsNewTraining = trainingBuilder.GetIsNewTraining();
-            mEndDime = trainingBuilder.GetEndTime();
-            mProgramType = trainingBuilder.GetProgramType();
-            mbIsFinished = trainingBuilder.GetIsFinished();
-            mbIspopular = trainingBuilder.GetIsPopular();
-            if (mbIsMustPay)
-                mTrainingName += " (платная секция) по записи";
+            mStartTime = trainingBuilder.mStartTime;
+            mEndTime = trainingBuilder.mEndDime;
+           
+            mGymName = trainingBuilder.mGymName;
+            mLevelName = trainingBuilder.mLevelName;
+            mCoachName = trainingBuilder.mCoachName;
+            mCoachFamily = trainingBuilder.mCoachFamily;
+            mDescription = trainingBuilder.mDescription;
+            mbIsReplaced = trainingBuilder.mbIsReplaced;
+            mbIsNewTraining = trainingBuilder.mbIsNewTraining;
+            mEndTime = trainingBuilder.mEndDime;
+            mProgramType = trainingBuilder.mProgramType;
+            mbIsFinished = trainingBuilder.mbIsFinished;
+            mbIspopular = trainingBuilder.mbIspopular;
+            mbIsMustPay = trainingBuilder.mbIsMustPay;
+            mTrainingName = trainingBuilder.mTrainingName;
+            mnplacesCount = trainingBuilder.mnplacesCount;
+            trainingBuilder.FreePlacesCount();//посчитаем кол-во свободных мест
+            mnFreePlacesCount = trainingBuilder.mnFreePlacesCount;
+            mnBusyPlacesCount = trainingBuilder.mnBusyPlacesCount;
         }
 
         public int mnTrtainingId { get; set; } //id тренировки
 
         public DateTime mStartTime { get; set; }//время начала
 
-        public DateTime mEndDime { get; set; }//время окончания тренировки
+        public DateTime mEndTime { get; set; }//время окончания тренировки
 
         public string mTrainingName { get; set; }//название тренировки
 
