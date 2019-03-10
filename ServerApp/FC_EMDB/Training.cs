@@ -7,26 +7,30 @@ namespace FC_EMDB
     {
         public Training(TrainingBuilder trainingBuilder)
         {
-            mStartTime = trainingBuilder.mStartTime;
-            mEndTime = trainingBuilder.mEndDime;
+            if (trainingBuilder != null)
+            {
+                mStartTime = trainingBuilder.mStartTime;
+                mEndTime = trainingBuilder.mEndDime;
+
+                mGymName = trainingBuilder.mGymName;
+                mLevelName = trainingBuilder.mLevelName;
+                mCoachName = trainingBuilder.mCoachName;
+                mCoachFamily = trainingBuilder.mCoachFamily;
+                mDescription = trainingBuilder.mDescription;
+                mbIsReplaced = trainingBuilder.mbIsReplaced;
+                mbIsNewTraining = trainingBuilder.mbIsNewTraining;
+                mEndTime = trainingBuilder.mEndDime;
+                mProgramType = trainingBuilder.mProgramType;
+                mbIsFinished = trainingBuilder.mbIsFinished;
+                mbIspopular = trainingBuilder.mbIspopular;
+                mbIsMustPay = trainingBuilder.mbIsMustPay;
+                mTrainingName = trainingBuilder.mTrainingName;
+                mnplacesCount = trainingBuilder.mnplacesCount;
+                trainingBuilder.FreePlacesCount();//посчитаем кол-во свободных мест
+                mnFreePlacesCount = trainingBuilder.mnFreePlacesCount;
+                mnBusyPlacesCount = trainingBuilder.mnBusyPlacesCount;
+            }
            
-            mGymName = trainingBuilder.mGymName;
-            mLevelName = trainingBuilder.mLevelName;
-            mCoachName = trainingBuilder.mCoachName;
-            mCoachFamily = trainingBuilder.mCoachFamily;
-            mDescription = trainingBuilder.mDescription;
-            mbIsReplaced = trainingBuilder.mbIsReplaced;
-            mbIsNewTraining = trainingBuilder.mbIsNewTraining;
-            mEndTime = trainingBuilder.mEndDime;
-            mProgramType = trainingBuilder.mProgramType;
-            mbIsFinished = trainingBuilder.mbIsFinished;
-            mbIspopular = trainingBuilder.mbIspopular;
-            mbIsMustPay = trainingBuilder.mbIsMustPay;
-            mTrainingName = trainingBuilder.mTrainingName;
-            mnplacesCount = trainingBuilder.mnplacesCount;
-            trainingBuilder.FreePlacesCount();//посчитаем кол-во свободных мест
-            mnFreePlacesCount = trainingBuilder.mnFreePlacesCount;
-            mnBusyPlacesCount = trainingBuilder.mnBusyPlacesCount;
         }
 
         public int mnTrtainingId { get; set; } //id тренировки
