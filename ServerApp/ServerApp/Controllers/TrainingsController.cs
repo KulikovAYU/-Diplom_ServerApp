@@ -19,24 +19,16 @@ namespace ServerApp.Controllers
         }
 
 
-  // GET api/values/5
-        [HttpGet("{date}")]
+
+        /// <summary>
+        /// Получить список тренировок на выбранный день
+        /// </summary>
+        /// <param name="date">Выбранная дата</param>
+        /// <returns>Список тренировок</returns>
+        [HttpGet]
+        [Route("gettrainingsList/{date}")]
         public ActionResult<IEnumerable<Training>> Get(DateTime date)
         {
-            //return new List<Training>()
-            //{
-            //    new Training()
-            //    {
-            //        mnTrtainingId = 1,
-            //        mCoachName = "Галина",
-            //        mCoachFamily = "Елизарова",
-            //        mGymName = "Большой зал",
-            //        mProgramType = "Mind&Body (Мягкий фитнес)",
-            //        mLevelName = "Низкая интенсивность",
-            //        mDescription = "Занятие, на котором помимо асан и пранаямы делается акцент на " +
-            //                       "концентрацию внимания и медитацию. Урок рекомендован для всех уровней подготовки"
-            //    }
-            //};
 
             var list = new List<Training>();
 
@@ -59,8 +51,8 @@ namespace ServerApp.Controllers
 
 
             Training item2 = new TrainingBuilder().Name("TRX").
-                    StartTime(new DateTime(2019, 2, 8, 8, 30,0)).
-                    EndTime(new DateTime(2019, 2, 8, 9, 30,0)).
+                    StartTime(new DateTime(2019, 2, 8, 8, 30, 0)).
+                    EndTime(new DateTime(2019, 2, 8, 9, 30, 0)).
                     GymName("Тренажерный зал").
                     ProgramType("Специальные программы").
                     LevelName("Для всех уровней подготовки").
@@ -109,7 +101,7 @@ namespace ServerApp.Controllers
 
             Training item5 = new TrainingBuilder().Name("Pilates").
                     StartTime(new DateTime(2019, 2, 8, 17, 30, 00)).
-                    EndTime(new DateTime(2019, 2, 8, 18, 30,00)).
+                    EndTime(new DateTime(2019, 2, 8, 18, 30, 00)).
                     GymName("Большой зал").
                     LevelName("Для всех уровней подготовки").
                     CoachName("Полина").
@@ -122,33 +114,37 @@ namespace ServerApp.Controllers
                     Build();
             list.Add(item5);
 
-            //Training item6 = new CommercialTraining.CommercialTrainingBuilder().Name("TRX").
-            //        StartTime(new Date(2019, 2, 8, 18, 30)).
-            //        EndTime(new Date(2019, 2, 8, 19, 30)).
-            //        GymName("Тренажерный зал").
-            //        LevelName("Для всех уровней подготовки").
-            //        CoachName("Анастасия").
-            //        ProgramType("Специальные программы").
-            //        CoachFamily("Молькова").
-            //        Description("TRX - тренировка мышц всего тела с помощью уникального оборудования - " +
-            //                "TRX-петель. Это тренировка, которая позволяет не только развивать все мышечные группы, " +
-            //                "укреплять связки и сухожилия, но и развивать гибкость, ловкость, выносливость и многое " +
-            //                "другое. Данная тренировка имеет еще одно важное достоинство - эффективное развитие мышц так " +
-            //                "называемого кора(мышц-стабилизаторов). Упражнения подходят для всех возрастных групп, " +
-            //                "для мужчин и женщин, для лиц с отклонениями в состоянии здоровья, так как в этой тренировке " +
-            //                "нет никакой осевой (вертикальной) нагрузки на позвоночник").
-            //        Capacity(15).
-            //        Build();
-            //list.add(item6);
+            if (list == null)
+                return NotFound();
 
-            return list;
+            return Ok(list);
         }
 
-        //[HttpGet("{currentTraining}")]
-        //public ActionResult<Coach> Get(Training currentTraining)
+        //[HttpGet("{id}")]
+        ////[Route("Trainings1/{id}")]
+        //public ActionResult<Coach> Get(int id, string mnTrtainingId)
         //{
-        //    return  new Coach(){mCoachName = "Иван", mCoachFamily = "Иванов", mCoachDesc = "Описагние тренера"};
+        //    return new Coach() { mCoachName = "Иван", mCoachFamily = "Иванов", mCoachDesc = "Описагние тренера" };
         //}
+
+
+
+        //[HttpPost]
+        //public void Post([FromBody]MyClass currentTraining)
+        //{
+        //    new Coach() { mCoachName = "Иван", mCoachFamily = "Иванов", mCoachDesc = "Описагние тренера" };
+        //}
+
+        /// <summary>
+        /// Получить информацию о тренере по конкретной тренировке
+        /// </summary>
+        /// <param name="currentTraining">Текущая тренировка</param>
+        /// <returns>Тренер</returns>
+        [HttpPost]
+        public ActionResult<Coach> Post([FromBody]Training currentTraining)
+        {
+            return Ok(new Coach() { mCoachName = "Иван", mCoachFamily = "Иванов", mCoachDesc = "Описагние тренера" });
+        }
 
         // GET api/values/5
         [HttpGet("{id}")]
@@ -158,10 +154,12 @@ namespace ServerApp.Controllers
         }
 
         // POST api/values
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
+        //[HttpPost]
+        //public ActionResult<Coach> Post([FromBody] string value)
+        //{
+        //    int n = 0;
+        //    return null;
+        //}
 
         // PUT api/values/5
         [HttpPut("{id}")]
@@ -175,4 +173,10 @@ namespace ServerApp.Controllers
         {
         }
     }
+
+
+    //public class MyClass
+    //{
+    //    public string mName { get; set; }
+    //}
 }

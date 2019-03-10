@@ -13,7 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FC_EMDB\FC_EMDB.csproj" />
+    <ProjectReference Include="..\FC_EMDB.Database\FC_EMDB.Database.csproj" />
+    <ProjectReference Include="..\FC_EMDB\FC_EMDB.Entities.csproj" />
   </ItemGroup>
 
 </Project>
