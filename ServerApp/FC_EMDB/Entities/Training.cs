@@ -9,16 +9,16 @@ namespace FC_EMDB.Entities.Entities
     /// </summary>
     public class Training
     {
-        public ICollection<CoachTraining> CoachTraining { get; set; }
-        public ICollection<TrainingAbonement> TrainingAbonement { get; set; }
+        public ICollection<CoachTraining> CoachTrainings { get; set; }
+        public ICollection<TrainingAbonement> TrainingAbonements { get; set; }
 
-        public ICollection<PreRegistration> PreRegistration { get; set; }
+        public ICollection<PreRegistration> PreRegistrations { get; set; }
 
         public Training()
         {
-            CoachTraining = new HashSet<CoachTraining>();
-            TrainingAbonement = new HashSet<TrainingAbonement>();
-            PreRegistration = new HashSet<PreRegistration>();
+            CoachTrainings = new HashSet<CoachTraining>();
+            TrainingAbonements = new HashSet<TrainingAbonement>();
+            PreRegistrations = new HashSet<PreRegistration>();
         }
 
         public int Id { get; set; } //id тренировки

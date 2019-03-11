@@ -7,11 +7,11 @@ namespace FC_EMDB.Entities.Entities
     /// </summary>
     public class Coach : Employee
     {
-        public ICollection<CoachTraining> CoachTraining { get; set; }
+        public ICollection<CoachTraining> CoachTrainings { get; set; }
 
         public Coach()
         {
-            CoachTraining = new HashSet<CoachTraining>();
+            CoachTrainings = new HashSet<CoachTraining>();
             
         }
     }

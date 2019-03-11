@@ -5,13 +5,13 @@ namespace FC_EMDB.Entities.Entities
 {
     public class Abonement
     {
-        public ICollection<TrainingAbonement> TrainingAbonement { get; set; }
-        public ICollection<PreRegistration> PreRegistration { get; set; }
+        public ICollection<TrainingAbonement> TrainingAbonements { get; set; }
+        public ICollection<PreRegistration> PreRegistrations { get; set; }
 
         public Abonement()
         {
-            TrainingAbonement = new HashSet<TrainingAbonement>();
-            PreRegistration = new HashSet<PreRegistration>();
+            TrainingAbonements = new HashSet<TrainingAbonement>();
+            PreRegistrations = new HashSet<PreRegistration>();
         }
 
         public int Id { get; set; }
@@ -24,21 +24,21 @@ namespace FC_EMDB.Entities.Entities
         /// <summary>
         /// Навигация Abonement 1..*-> 1..1 AbonementStatus
         /// </summary>
-        public int AbonementStatusId { get; set; }
+        public int AbonementStatusId { get; set; }//(Внешний ключ)
         public AbonementStatus AbonementStatus { get; set; }
 
 
         /// <summary>
         /// Навигация Abonement 1..1 -> 1..1 Client
         /// </summary>
-        public int ClientId { get; set; } //id клиента
+        public int ClientId { get; set; } //id клиента (Внешний ключ)
         public Client Client { get; set; } //свойство навигации
 
 
         /// <summary>
         /// Навигация Abonement 1..1 -> 1..1 AbonementTypeId
         /// </summary>
-        public int AbonementTypeId { get; set; }//id абонемента
+        public int AbonementTypeId { get; set; }//id абонемента (Внешний ключ)
         public AbonementType AbonementType { get; set; } //свойство навигации
     }
 }

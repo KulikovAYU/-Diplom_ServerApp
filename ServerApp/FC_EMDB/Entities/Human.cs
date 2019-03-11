@@ -7,13 +7,15 @@ namespace FC_EMDB.Entities.Entities
     {
         public int Id { get; set; }
 
-        public string Name { get; set; }
+        public string Name { get; set; } //имя
 
-        public string Family { get; set; }
+        public string Family { get; set; } //фамилия
+
+        public string LastName { get; set; } //отчество
 
         public DateTime DateOfBirdth { get; set; }
         //public string mCoachDesc { get; set; }
 
-        public Bitmap Photo { get; set; }
+        public byte[] Photo { get; set; }
     }
 }
