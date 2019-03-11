@@ -10,7 +10,7 @@ namespace FC_EMDB.Database.EntitiesConfiguration
         {
             builder.HasBaseType<Human>();//имеется базовый тип человек
             
-            builder.HasKey(emp => emp.Id);
+            
             builder.Property(emp => emp.Login).IsRequired().HasMaxLength(50);
             builder.Property(emp => emp.PasswordHash).IsRequired().HasMaxLength(50);
             builder.Property(emp => emp.Name).IsRequired().HasMaxLength(50);
