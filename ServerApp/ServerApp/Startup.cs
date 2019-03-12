@@ -1,4 +1,6 @@
 ﻿using FC_EMDB.Database.DbContext;
+using FC_EMDB.Database.Initializer;
+using FC_EMDB.Database.UnitOfWork;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -20,7 +22,10 @@ namespace ServerApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<DataBaseFcContext>(options=>options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), x => x.MigrationsAssembly("FC_EMDB.Migrations")));
+            //объект сервиса создается при первом обращении к нему, все последующие запросы используют один и тот же ранее созданный объект сервиса
+            services.AddSingleton<IUnitOfWork, UnitOfWork>();
+            services.AddDbContext<UnitOfWork>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), x => x.MigrationsAssembly("FC_EMDB.Migrations")));
+            // services.AddDbContext<DataBaseFcContext>(options=>options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), x => x.MigrationsAssembly("FC_EMDB.Migrations")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
@@ -33,6 +38,9 @@ namespace ServerApp
             }
 
             app.UseMvc();
+
+            //инициализация наших сущностей
+            DbInitializer.Seed(app);
         }
     }
 }
