@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FC_EMDB.Entities", "FC_EMDB
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerApp", "ServerApp\ServerApp.csproj", "{E7C6C39A-32A1-47BE-B67C-4E9E5C419FA2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FC_EMDB.Database", "FC_EMDB.Database\FC_EMDB.Database.csproj", "{C94D8904-6077-4289-B778-F2C3813D7D66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FC_EMDB.Database", "FC_EMDB.Database\FC_EMDB.Database.csproj", "{C94D8904-6077-4289-B778-F2C3813D7D66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FC_EMDB.Migrations", "FC_EMDB.Migrations\FC_EMDB.Migrations.csproj", "{BDBF6C88-4C6C-4F79-A1C8-EDA7AF92FF90}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{C94D8904-6077-4289-B778-F2C3813D7D66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C94D8904-6077-4289-B778-F2C3813D7D66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C94D8904-6077-4289-B778-F2C3813D7D66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDBF6C88-4C6C-4F79-A1C8-EDA7AF92FF90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDBF6C88-4C6C-4F79-A1C8-EDA7AF92FF90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDBF6C88-4C6C-4F79-A1C8-EDA7AF92FF90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDBF6C88-4C6C-4F79-A1C8-EDA7AF92FF90}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
