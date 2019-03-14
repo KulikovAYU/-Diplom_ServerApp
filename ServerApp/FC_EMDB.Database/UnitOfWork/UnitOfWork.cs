@@ -1,8 +1,8 @@
-﻿using FC_EMDB.Database.DbContext;
-using FC_EMDB.Database.Interfaces;
+﻿using System;
+using System.Threading.Tasks;
+using FC_EMDB.Database.DbContext;
 using FC_EMDB.Database.UnitOfWork.Interfaces;
-using FC_EMDB.Entities.Entities;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace FC_EMDB.Database.UnitOfWork
 {
@@ -10,25 +10,25 @@ namespace FC_EMDB.Database.UnitOfWork
     {
         private  readonly DataBaseFcContext m_context;
 
-        public UnitOfWork(DbContextOptions<DataBaseFcContext> options) : base(options)
+        public UnitOfWork(IServiceProvider serviceProvider)
         {
-            //создаем контекст БД
-            m_context = new DataBaseFcContext(options);
+            //получаем контекст БД
+            m_context = (DataBaseFcContext) serviceProvider.GetService(typeof(DataBaseFcContext));
 
-             //инциализация репозиториев
-            Abonements = new AbonementRepository(m_context);
-            Coaches = new CoachRepository(m_context);
-            Trainings = new TrainingRepository(m_context);
-            TrainingsAbonements = new TrainingsAbonementsRepository(m_context);
-            Preregistrations = new PreRegistrationRepository(m_context);
-            CoachesTrainings = new CoachTrainingRepository(m_context);
+                //инциализация репозиториев
+            Abonements = serviceProvider.GetRequiredService<IAbonementRepository>();
+            Coaches = serviceProvider.GetRequiredService<ICoachRepository>();
+            Trainings = serviceProvider.GetRequiredService<ITrainingRepository>();
+            TrainingsAbonements = serviceProvider.GetRequiredService<ITrainingAbonementRepository>();
+            Preregistrations = serviceProvider.GetRequiredService<IPreregistrationRepository>();
+            CoachesTrainings = serviceProvider.GetRequiredService<ICoachTrainingRepository>();
         }
 
         //Экземпляры репозиториев
         /// <summary>
         /// Репозиторий для работы с абонементами
         /// </summary>
-        public IAbonementRepository Abonements { get;private set; }
+        public IAbonementRepository Abonements { get; }
         /// <summary>
         /// Репозиторий для работы с тренерами
         /// </summary>
@@ -62,5 +62,11 @@ namespace FC_EMDB.Database.UnitOfWork
         {
             m_context.Dispose();
         }
+
+        public async Task<int> CompleteAsync()
+        {
+            return await m_context.SaveChangesAsync();
+        }
+
     }
 }

@@ -1,10 +1,12 @@
-﻿using FC_EMDB.Entities.Entities;
+﻿using FC_EMDB.Database.DbContext;
+using FC_EMDB.Database.UnitOfWork.Interfaces;
+using FC_EMDB.Entities.Entities;
 
 namespace FC_EMDB.Database.UnitOfWork
 {
-    class AbonementRepository : Repository<Abonement>, IAbonementRepository
+    public class AbonementRepository : Repository<Abonement>, IAbonementRepository
     {
-        public AbonementRepository(Microsoft.EntityFrameworkCore.DbContext context) : base(context)
+        public AbonementRepository(DataBaseFcContext context) : base(context)
         {
 
         }

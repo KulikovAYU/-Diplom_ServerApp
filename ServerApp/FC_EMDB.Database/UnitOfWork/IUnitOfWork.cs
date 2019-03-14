@@ -1,5 +1,4 @@
 ﻿using System;
-using FC_EMDB.Database.Interfaces;
 using FC_EMDB.Database.UnitOfWork.Interfaces;
 
 namespace FC_EMDB.Database.UnitOfWork

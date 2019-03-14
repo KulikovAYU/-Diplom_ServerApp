@@ -1,6 +1,6 @@
 ﻿using FC_EMDB.Entities.Entities;
 
-namespace FC_EMDB.Database.UnitOfWork
+namespace FC_EMDB.Database.UnitOfWork.Interfaces
 {
     /// <summary>
     /// Репозиторий для работы с записями сущности "тренер"

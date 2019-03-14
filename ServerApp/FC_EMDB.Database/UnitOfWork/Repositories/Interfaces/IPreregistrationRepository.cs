@@ -1,7 +1,6 @@
-﻿using FC_EMDB.Database.UnitOfWork;
-using FC_EMDB.Entities.Entities;
+﻿using FC_EMDB.Entities.Entities;
 
-namespace FC_EMDB.Database.Interfaces
+namespace FC_EMDB.Database.UnitOfWork.Interfaces
 {
     public interface IPreregistrationRepository : IRepository<PreRegistration>
     {
