@@ -39,7 +39,7 @@ namespace FC_EMDB.Entities.Entities
 
         //public string mCoachFamily { get; set; }//фамилия инструктора //в сущность
 
-        public string mDescription { get; set; }// описание
+        //public string mDescription { get; set; }// описание
 
         public bool IsReplaced { get; set; }//заменена ли тренировка
 
@@ -62,5 +62,11 @@ namespace FC_EMDB.Entities.Entities
         /// </summary>
         public int GymId { get; set; }
         public Gym Gym { get; set; }
+
+        /// <summary>
+        /// Навигация Training 1..1 -> 1..1 Description
+        /// </summary>
+        public int DescriptionId { get; set; }
+        public Description Description { get; set; }
     }
 }

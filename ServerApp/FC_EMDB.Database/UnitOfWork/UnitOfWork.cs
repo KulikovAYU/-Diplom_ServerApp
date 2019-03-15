@@ -15,13 +15,16 @@ namespace FC_EMDB.Database.UnitOfWork
             //получаем контекст БД
             m_context = (DataBaseFcContext) serviceProvider.GetService(typeof(DataBaseFcContext));
 
-                //инциализация репозиториев
+            //инциализация репозиториев
             Abonements = serviceProvider.GetRequiredService<IAbonementRepository>();
             Coaches = serviceProvider.GetRequiredService<ICoachRepository>();
             Trainings = serviceProvider.GetRequiredService<ITrainingRepository>();
             TrainingsAbonements = serviceProvider.GetRequiredService<ITrainingAbonementRepository>();
             Preregistrations = serviceProvider.GetRequiredService<IPreregistrationRepository>();
             CoachesTrainings = serviceProvider.GetRequiredService<ICoachTrainingRepository>();
+            AbonementStatuses = serviceProvider.GetRequiredService<IAbonementStatusRepository>();
+            AbonementTypes = serviceProvider.GetRequiredService<IAbonementTypeRepository>();
+            Descriptions = serviceProvider.GetRequiredService<IDescriptionRepository>();
         }
 
         //Экземпляры репозиториев
@@ -49,6 +52,18 @@ namespace FC_EMDB.Database.UnitOfWork
         /// Репозиторий для работы с сущностью "занятие - тренер"
         /// </summary>
         public ICoachTrainingRepository CoachesTrainings { get; }
+        /// <summary>
+        /// Репозиторий для работы со статусами абонемента
+        /// </summary>
+        public IAbonementStatusRepository AbonementStatuses { get; }
+        /// <summary>
+        /// Репозиторий для работы с видами абонементами
+        /// </summary>
+        public IAbonementTypeRepository AbonementTypes { get; }
+        /// <summary>
+        /// Репозиторий для работы с Описанием тренировок
+        /// </summary>
+        public IDescriptionRepository Descriptions { get; }
 
         /// <summary>
         /// Сохраняет изменения

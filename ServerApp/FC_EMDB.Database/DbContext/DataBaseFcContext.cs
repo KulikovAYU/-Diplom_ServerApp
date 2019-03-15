@@ -9,7 +9,7 @@ namespace FC_EMDB.Database.DbContext
         public DataBaseFcContext(DbContextOptions<DataBaseFcContext> options) : base(options)
         {
             //Гарантирует, что база данных для контекста не существует. Если он не существует, никаких действий не предпринимается. Если он существует, то база данных удаляется.
-         //   Database.EnsureDeleted();
+            Database.EnsureCreated();
         }
 
         #region Свойства доступа к полям БД
@@ -25,6 +25,7 @@ namespace FC_EMDB.Database.DbContext
         public virtual DbSet<PreRegistration> PreRegistrations { get; set; }
         public virtual DbSet<Training> Trainings { get; set; }
         public virtual DbSet<TrainingAbonement> TrainingAbonements { get; set; }
+        public virtual DbSet<Description> Descriptions { get; set; }
         #endregion
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

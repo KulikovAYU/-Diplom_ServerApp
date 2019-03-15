@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ServerApp.CustomMiddleware;
 
 namespace ServerApp
 {
@@ -31,7 +32,9 @@ namespace ServerApp
             services.AddTransient<ITrainingAbonementRepository, TrainingsAbonementsRepository>();
             services.AddTransient<IPreregistrationRepository, PreRegistrationRepository>();
             services.AddTransient<ICoachTrainingRepository, CoachTrainingRepository>();
-
+            services.AddTransient<IAbonementStatusRepository, AbonementStatusRepository>();
+            services.AddTransient<IAbonementTypeRepository, AbonementTypeRepository>();
+            services.AddTransient<IDescriptionRepository, DescriptionRepository>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
 
             services.AddMvc();
@@ -47,18 +50,19 @@ namespace ServerApp
             {
                 app.UseDeveloperExceptionPage();
             }
-            
-          //  app.ApplicationServices.GetRequiredService<IUnitOfWork>(); //получаем требуемый сервис
 
+            //  app.ApplicationServices.GetRequiredService<IUnitOfWork>(); //получаем требуемый сервис
+            var res = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
             app.UseMvc();
             //IUnitOfWork context1 =
             //    provider.GetRequiredService<IAbonementRepository>();
             //IUnitOfWork context =
             //    provider.GetRequiredService<IUnitOfWork>();
-           
-           // app.UseEFCoreInitializer(provider.GetRequiredService<IUnitOfWork>());
+
+            // app.UseEFCoreInitializer(provider.GetRequiredService<IUnitOfWork>());
             //инициализация наших сущностей
-            DbInitializer.Seed(provider.GetRequiredService<IUnitOfWork>());
+            app.UseEFCoreInitializer();
+          //  DbInitializer.Seed(provider.GetRequiredService<IUnitOfWork>());
         }
     }
 }
