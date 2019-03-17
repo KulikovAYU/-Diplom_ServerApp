@@ -1,6 +1,4 @@
-﻿
-
-using FC_EMDB.Entities.Entities;
+﻿using FC_EMDB.Entities.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -10,15 +8,15 @@ namespace FC_EMDB.Database.EntitiesConfiguration
     {
         public void Configure(EntityTypeBuilder<TrainingClient> builder)
         {
-            builder.HasKey(ta => new { ta.TrainingId, ta.ClientId });
+            builder.HasKey(tс => new { tс.TrainingId, tс.ClientId });
 
-            builder.HasOne(ta => ta.Client).
+            builder.HasOne(tс => tс.Client).
                  WithMany(client => client.TrainingClients).
-                 HasForeignKey(ta => ta.ClientId);
+                 HasForeignKey(tс => tс.ClientId);
 
-            builder.HasOne(ta => ta.Training).
+            builder.HasOne(tс => tс.Training).
                  WithMany(training => training.TrainingClients).
-                 HasForeignKey(ta => ta.TrainingId);
+                 HasForeignKey(tс => tс.TrainingId);
         }
     }
 }

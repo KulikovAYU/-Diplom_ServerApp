@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FC_EMDB.Database.DbContext
 {
-    public class DataBaseFcContext : Microsoft.EntityFrameworkCore.DbContext
+    public sealed class DataBaseFcContext : Microsoft.EntityFrameworkCore.DbContext
     {
         public DataBaseFcContext(DbContextOptions<DataBaseFcContext> options) : base(options)
         {
@@ -13,32 +13,25 @@ namespace FC_EMDB.Database.DbContext
         }
 
         #region Свойства доступа к полям БД
-        //public virtual DbSet<Abonement> Abonements { get; set; }
-        public virtual DbSet<AbonementStatus> AbonementStatuses { get; set; }
-        public virtual DbSet<AbonementType> AbonementTypes { get; set; }
-        public virtual DbSet<Client> Clients { get; set; }
-        //public virtual DbSet<Coach> Coaches { get; set; }
-        public virtual DbSet<CoachTraining> CoachTrainings { get; set; }
-        public virtual DbSet<Employee> Employees { get; set; }
-        public virtual DbSet<Gym> Gyms { get; set; }
-        //public virtual DbSet<Human> Humans { get; set; }
-      
-        public virtual DbSet<Training> Trainings { get; set; }
-        public virtual DbSet<TrainingClient> TrainingAbonements { get; set; }
-        //public virtual DbSet<Description> Descriptions { get; set; }
+        public DbSet<AbonementStatus> AbonementStatuses { get; set; }
+        public DbSet<AbonementType> AbonementTypes { get; set; }
+        public DbSet<Client> Clients { get; set; }
+        public DbSet<CoachTraining> CoachTrainings { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Gym> Gyms { get; set; }
+        public DbSet<Training> Trainings { get; set; }
+        public DbSet<TrainingClient> TrainingAbonements { get; set; }
         #endregion
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            //modelBuilder.ApplyConfiguration(new AbonementConfig());
+            //настройка конфигурации
             modelBuilder.ApplyConfiguration(new CoachTrainingConfig());
             modelBuilder.ApplyConfiguration(new EmployeeConfig());
-            modelBuilder.ApplyConfiguration(new CoachTrainingConfig());
-         
+            modelBuilder.ApplyConfiguration(new ReplacedTrainingConfig());
             modelBuilder.ApplyConfiguration(new TrainingClientConfig());
+            modelBuilder.ApplyConfiguration(new TrainingDataTrainingConfig());
         }
-
-        
     }
 }

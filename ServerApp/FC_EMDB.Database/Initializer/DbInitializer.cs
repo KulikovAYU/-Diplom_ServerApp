@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using FC_EMDB.Database.UnitOfWork;
 using FC_EMDB.Entities.Entities;
 using Microsoft.EntityFrameworkCore.Internal;
@@ -32,6 +31,83 @@ namespace FC_EMDB.Database.Initializer
                 {
                     new AbonementType {Name = "Утренний"},
                     new AbonementType {Name = "Вечер"}
+                });
+                context.Complete(); //сохраняем изменения
+            }
+
+            //если нет данных об уровне тренировок
+            if (!context.TrainingLevels.GetAll().Any())
+            {
+                context.TrainingLevels.AddRange(new List<TrainingLevel>()
+                {
+                    new TrainingLevel() {Name = "Для всех уровней подготовки"},
+                    new TrainingLevel() {Name = "Низкая интенсивность"}
+                });
+                context.Complete(); //сохраняем изменения
+            }
+
+            //если нет данных об типе программы
+            if (!context.ProgramTypes.GetAll().Any())
+            {
+                context.ProgramTypes.AddRange(new List<ProgramType>()
+                {
+                    new ProgramType() {Name = "Специальные программы"},
+                    new ProgramType() {Name = "Силовой и функциональный тренинг"},
+                    new ProgramType() {Name = "Mind&Body (Мягкий фитнес)"}
+                });
+                context.Complete(); //сохраняем изменения
+            }
+
+
+            //если нет данных о тренировке
+            if (!context.TrainingDatas.GetAll().Any())
+            {
+                context.TrainingDatas.AddRange(new List<TrainingData>()
+                {
+                    new TrainingData()
+                    {
+                        TrainingName = "Hatha Yoga", TrainingDescription =
+                            "Занятие, на котором помимо асан и пранаямы делается акцент на "
+                            + "концентрацию внимания и медитацию. Урок рекомендован для всех уровней подготовки",
+                        Level = context.TrainingLevels.Get(1),
+                        ProgramType = context.ProgramTypes.Get(1),
+                        IsNewTraining = true
+                    },
+                    new PayTraining()
+                    {
+                        TrainingName = "TRX", TrainingDescription =
+                            "TRX - тренировка мышц всего тела с помощью уникального оборудования - " +
+                            "TRX-петель. Это тренировка, которая позволяет не только развивать все мышечные группы, " +
+                            "укреплять связки и сухожилия, но и развивать гибкость, ловкость, выносливость и многое " +
+                            "другое. Данная тренировка имеет еще одно важное достоинство - эффективное развитие мышц так " +
+                            "называемого кора(мышц-стабилизаторов). Упражнения подходят для всех возрастных групп, " +
+                            "для мужчин и женщин, для лиц с отклонениями в состоянии здоровья, так как в этой тренировке " +
+                            "нет никакой осевой (вертикальной) нагрузки на позвоночник",
+                        PlacesCount = 10,
+                    },
+                    new TrainingData()
+                    {
+                        TrainingName = "New Body", TrainingDescription =
+                            "NEW BODY (55 мин) («Новое тело») - силовой урок, направленный на тренировку всех " +
+                            "групп мышц. Специально подобранные комплексы упражнений помогут скорректировать проблемные зоны, " +
+                            "независимо от того, каким телосложением вы обладаете. Урок рекомендован как для среднего так и для " +
+                            "продвинутого уровня подготовки"
+                    },
+                    new TrainingData()
+                    {
+                        TrainingName = "ABS+Stretch", TrainingDescription =
+                            "Урок, направленный на развитие гибкости, с использованием специальных упражнений на растягивание. " +
+                            "Увеличивает подвижность суставов, эластичность связок, дает общее расслабление и релаксацию."
+                    },
+                    new TrainingData()
+                    {
+                        TrainingName = "Pilates", TrainingDescription =
+                            "Урок направлен на укрепление мышц-стабилизаторов, упражнгения пилатес " +
+                            "способствуют снятию напряжению с позвоночника, восстановлению эластичности " +
+                            "связочного аппарата и мышц. Урок рекомендован для всех уровней подготовки",
+                        Ispopular = true
+                    }
+
                 });
                 context.Complete(); //сохраняем изменения
             }

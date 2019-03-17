@@ -37,6 +37,8 @@ namespace ServerApp
             services.AddTransient<IEmployeeRepository, EmployeeRepository>();
             services.AddTransient<IRoleRepository, RoleRepository>();
             services.AddTransient<IReplacedTrainingRepository, ReplacedTrainingRepository>();
+            services.AddTransient<ITrainingLevelRepository, TrainingLevelRepository>();
+            services.AddTransient<IProgramTypeRepository, ProgramTypeRepository>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
 
             services.AddMvc();

@@ -28,6 +28,8 @@ namespace FC_EMDB.Database.UnitOfWork
             Employees = serviceProvider.GetRequiredService<IEmployeeRepository>();
             Roles = serviceProvider.GetRequiredService<IRoleRepository>();
             ReplacedTrainings = serviceProvider.GetRequiredService<IReplacedTrainingRepository>();
+            TrainingLevels = serviceProvider.GetRequiredService<ITrainingLevelRepository>();
+            ProgramTypes = serviceProvider.GetRequiredService<IProgramTypeRepository>();
             //
         }
 
@@ -81,7 +83,14 @@ namespace FC_EMDB.Database.UnitOfWork
         /// Репозиторий для работы с замененными тренировками
         /// </summary>
         public IReplacedTrainingRepository ReplacedTrainings { get; }
-
+        /// <summary>
+        /// Репозиторий для работы с уровнями тренировок
+        /// </summary>
+        public ITrainingLevelRepository TrainingLevels { get; }
+        /// <summary>
+        /// Репозиторий для работы с типом программы
+        /// </summary>
+        public IProgramTypeRepository ProgramTypes { get;}
 
         /// <summary>
         /// Сохраняет изменения

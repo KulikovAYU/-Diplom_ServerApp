@@ -31,6 +31,10 @@ namespace FC_EMDB.Database.UnitOfWork
 
         IRoleRepository Roles { get; }
 
+        ITrainingLevelRepository TrainingLevels { get; }
+
+        IProgramTypeRepository ProgramTypes { get; }
+
         int Complete();
 
         Task<int> CompleteAsync();
