@@ -109,7 +109,11 @@ namespace FC_EMDB.Database.UnitOfWork
             if (entities == null) return null;
             var addRange = entities as TEntity[] ?? entities.ToArray();
             m_context.Set<TEntity>().AddRange(addRange);
-            m_context.Entry(addRange).State = EntityState.Added;
+            foreach (var curr in addRange)
+            {
+                m_context.Entry(curr).State = EntityState.Added;
+            }
+          
             m_context.SaveChanges();
             return addRange;
         }

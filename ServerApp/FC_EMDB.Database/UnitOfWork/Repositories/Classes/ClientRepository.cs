@@ -1,11 +1,12 @@
-﻿using FC_EMDB.Database.UnitOfWork.Interfaces;
+﻿using FC_EMDB.Database.DbContext;
+using FC_EMDB.Database.UnitOfWork.Interfaces;
 using FC_EMDB.Entities.Entities;
 
 namespace FC_EMDB.Database.UnitOfWork
 {
     public class ClientRepository : Repository<Client>, IClientRepository
     {
-        public ClientRepository(Microsoft.EntityFrameworkCore.DbContext context) : base(context)
+        public ClientRepository(DataBaseFcContext context) : base(context)
         {
         }
 

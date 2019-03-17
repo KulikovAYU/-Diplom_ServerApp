@@ -30,6 +30,7 @@ namespace FC_EMDB.Database.UnitOfWork
             ReplacedTrainings = serviceProvider.GetRequiredService<IReplacedTrainingRepository>();
             TrainingLevels = serviceProvider.GetRequiredService<ITrainingLevelRepository>();
             ProgramTypes = serviceProvider.GetRequiredService<IProgramTypeRepository>();
+            VisitedTrainingClients = serviceProvider.GetRequiredService<IVisitedTrainingClientRepository>();
             //
         }
 
@@ -91,6 +92,10 @@ namespace FC_EMDB.Database.UnitOfWork
         /// Репозиторий для работы с типом программы
         /// </summary>
         public IProgramTypeRepository ProgramTypes { get;}
+        /// <summary>
+        /// Репозиторий для работы с посещенными тренировками
+        /// </summary>
+        public IVisitedTrainingClientRepository VisitedTrainingClients { get; set; }
 
         /// <summary>
         /// Сохраняет изменения
@@ -102,6 +107,7 @@ namespace FC_EMDB.Database.UnitOfWork
         }
         public override void Dispose()
         {
+            base.Dispose();
             m_context.Dispose();
         }
 

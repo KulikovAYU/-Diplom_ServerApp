@@ -39,6 +39,7 @@ namespace ServerApp
             services.AddTransient<IReplacedTrainingRepository, ReplacedTrainingRepository>();
             services.AddTransient<ITrainingLevelRepository, TrainingLevelRepository>();
             services.AddTransient<IProgramTypeRepository, ProgramTypeRepository>();
+            services.AddTransient<IVisitedTrainingClientRepository, VisitedTrainingClientRepository>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
 
             services.AddMvc();

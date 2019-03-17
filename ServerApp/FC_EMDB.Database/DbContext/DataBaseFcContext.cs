@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FC_EMDB.Database.DbContext
 {
-    public sealed class DataBaseFcContext : Microsoft.EntityFrameworkCore.DbContext
+    public class DataBaseFcContext : Microsoft.EntityFrameworkCore.DbContext
     {
         public DataBaseFcContext(DbContextOptions<DataBaseFcContext> options) : base(options)
         {
@@ -18,9 +18,18 @@ namespace FC_EMDB.Database.DbContext
         public DbSet<Client> Clients { get; set; }
         public DbSet<CoachTraining> CoachTrainings { get; set; }
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<PayTraining> PayTrainings { get; set; }
+        public DbSet<ProgramType> ProgramTypes { get; set; }
+        public DbSet<ReplcedTraining> ReplcedTrainings { get; set; }
+        public DbSet<Role> Roles { get; set; }
         public DbSet<Gym> Gyms { get; set; }
+        public DbSet<TrainingClient> TrainingClients { get; set; }
+        public DbSet<TrainingData> TrainingDatas { get; set; }
+        public DbSet<TrainingDataTraining> TrainingDataTrainings { get; set; }
         public DbSet<Training> Trainings { get; set; }
-        public DbSet<TrainingClient> TrainingAbonements { get; set; }
+        public DbSet<TrainingLevel> TrainingLevels { get; set; }
+        public DbSet<VisitedTrainingClient> VisitedTrainingClients { get; set; }
+
         #endregion
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -32,6 +41,8 @@ namespace FC_EMDB.Database.DbContext
             modelBuilder.ApplyConfiguration(new ReplacedTrainingConfig());
             modelBuilder.ApplyConfiguration(new TrainingClientConfig());
             modelBuilder.ApplyConfiguration(new TrainingDataTrainingConfig());
+            modelBuilder.ApplyConfiguration(new PayTrainingConfig());
+            modelBuilder.ApplyConfiguration(new VisitedTrainingClientConfig());
         }
     }
 }

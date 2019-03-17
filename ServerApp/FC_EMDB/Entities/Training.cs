@@ -14,7 +14,9 @@ namespace FC_EMDB.Entities.Entities
         public ICollection<TrainingClient> TrainingClients { get; set; }
         public ICollection<ReplcedTraining> ReplcedTrainings { get; set; }
         public ICollection<TrainingDataTraining> TrainingDataTrainings { get; set; }
-      
+        public ICollection<VisitedTrainingClient> VisitedTrainingDataTrainings { get; set; }
+
+
 
         public Training()
         {
@@ -22,6 +24,7 @@ namespace FC_EMDB.Entities.Entities
             TrainingClients = new HashSet<TrainingClient>();
             ReplcedTrainings = new HashSet<ReplcedTraining>();
             TrainingDataTrainings = new HashSet<TrainingDataTraining>();
+            VisitedTrainingDataTrainings = new HashSet<VisitedTrainingClient>();
         }
 
         public int Id { get; set; } //id тренировки

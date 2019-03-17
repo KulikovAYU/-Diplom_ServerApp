@@ -3,12 +3,12 @@
 namespace FC_EMDB.Entities.Entities
 {
     /// <summary>
-    /// Класс посещение 1..* Training -> 1..* Client
+    /// Сущность "посещенные тренировки"
     /// </summary>
-    public class TrainingClient
+   public class VisitedTrainingClient
     {
-        //public DateTime ComeInTime { get; set; }//время входа
-        //public DateTime ComeOutTime { get; set; }//время выхода
+        public DateTime ComeInTime { get; set; }//время входа
+        public DateTime ComeOutTime { get; set; }//время выхода
         //public bool IsComeIn { get; set; } //пришел
 
         public int TrainingId { get; set; }

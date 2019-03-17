@@ -5,6 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Coach.cs" />
+    <Compile Remove="Training.cs" />
+    <Compile Remove="TrainingBuilder.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="System.Drawing.Common" Version="4.5.1" />
   </ItemGroup>
 

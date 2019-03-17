@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 namespace FC_EMDB.Entities.Entities
 {
@@ -18,6 +19,7 @@ namespace FC_EMDB.Entities.Entities
 
         public string Name { get; set; }
 
+        
         public DateTime DaysFreezeCount { get; set; } //срок заморозки
 
         public ICollection<Client> Clients { get; set; } //абонементы

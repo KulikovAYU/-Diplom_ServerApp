@@ -9,7 +9,7 @@ namespace FC_EMDB.Entities.Entities
         public Client()
         {
             TrainingClients = new HashSet<TrainingClient>();
-
+            VisitedTrainingClients = new List<VisitedTrainingClient>();
         }
         public string PasportData { get; set; } //паспортные данные
 
@@ -32,6 +32,8 @@ namespace FC_EMDB.Entities.Entities
         public int AbonementTypeId { get; set; }//id абонемента (Внешний ключ)
         public AbonementType AbonementType { get; set; } //свойство навигации
 
-        public ICollection<TrainingClient> TrainingClients;
-   }
+        public ICollection<TrainingClient> TrainingClients { get; set; }
+
+        public ICollection<VisitedTrainingClient> VisitedTrainingClients { get; set; }
+    }
 }
