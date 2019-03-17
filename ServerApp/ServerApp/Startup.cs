@@ -1,6 +1,5 @@
 ﻿using System;
 using FC_EMDB.Database.DbContext;
-using FC_EMDB.Database.Initializer;
 using FC_EMDB.Database.UnitOfWork;
 using FC_EMDB.Database.UnitOfWork.Interfaces;
 using Microsoft.AspNetCore.Builder;
@@ -25,16 +24,19 @@ namespace ServerApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DataBaseFcContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), x => x.MigrationsAssembly("FC_EMDB.Migrations")));
-            
-            services.AddTransient<IAbonementRepository, AbonementRepository>();
-            services.AddTransient<ICoachRepository, CoachRepository>();
-            services.AddTransient<ITrainingRepository, TrainingRepository>();
-            services.AddTransient<ITrainingAbonementRepository, TrainingsAbonementsRepository>();
-            services.AddTransient<IPreregistrationRepository, PreRegistrationRepository>();
-            services.AddTransient<ICoachTrainingRepository, CoachTrainingRepository>();
+
+            services.AddTransient<IClientRepository, ClientRepository>();
             services.AddTransient<IAbonementStatusRepository, AbonementStatusRepository>();
             services.AddTransient<IAbonementTypeRepository, AbonementTypeRepository>();
-            services.AddTransient<IDescriptionRepository, DescriptionRepository>();
+            services.AddTransient<ITrainingClientRepository, TrainingClientRepository>();
+            services.AddTransient<ITrainingDataTrainingRepository, TrainingDataTrainingRepository>();
+            services.AddTransient<ITrainingDataRepository, TrainingDataRepository>();
+            services.AddTransient<ITrainingRepository, TrainingRepository>();
+            services.AddTransient<IGymRepository, GymRepository>();
+            services.AddTransient<ICoachTrainingRepository, CoachTrainingRepository>();
+            services.AddTransient<IEmployeeRepository, EmployeeRepository>();
+            services.AddTransient<IRoleRepository, RoleRepository>();
+            services.AddTransient<IReplacedTrainingRepository, ReplacedTrainingRepository>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
 
             services.AddMvc();

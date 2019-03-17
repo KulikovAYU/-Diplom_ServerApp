@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 
 namespace FC_EMDB.Entities.Entities
 {

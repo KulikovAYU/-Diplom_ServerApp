@@ -142,7 +142,7 @@ namespace ServerApp.Controllers
         /// <param name="currentTraining">Текущая тренировка</param>
         /// <returns>Тренер</returns>
         [HttpPost]
-        public ActionResult<Coach> Post([FromBody]Training currentTraining)
+        public ActionResult<Employee> Post([FromBody]Training currentTraining)
         {
             return Ok(/*new Coach() { mCoachName = "Иван", mCoachFamily = "Иванов", mCoachDesc = "Описагние тренера" }*/);
         }

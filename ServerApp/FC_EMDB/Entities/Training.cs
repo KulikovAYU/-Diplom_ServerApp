@@ -1,24 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 
 namespace FC_EMDB.Entities.Entities
 {
     /// <summary>
-    /// Сущность тренировки
+    /// Сущность тренировки в расписании
     /// </summary>
     public class Training
     {
         public ICollection<CoachTraining> CoachTrainings { get; set; }
-        public ICollection<TrainingAbonement> TrainingAbonements { get; set; }
-
-        public ICollection<PreRegistration> PreRegistrations { get; set; }
+        public ICollection<TrainingClient> TrainingClients { get; set; }
+        public ICollection<ReplcedTraining> ReplcedTrainings { get; set; }
+        public ICollection<TrainingDataTraining> TrainingDataTrainings { get; set; }
+      
 
         public Training()
         {
             CoachTrainings = new HashSet<CoachTraining>();
-            TrainingAbonements = new HashSet<TrainingAbonement>();
-            PreRegistrations = new HashSet<PreRegistration>();
+            TrainingClients = new HashSet<TrainingClient>();
+            ReplcedTrainings = new HashSet<ReplcedTraining>();
+            TrainingDataTrainings = new HashSet<TrainingDataTraining>();
         }
 
         public int Id { get; set; } //id тренировки
@@ -27,46 +30,27 @@ namespace FC_EMDB.Entities.Entities
 
         public DateTime EndTime { get; set; }//время окончания тренировки
 
-        public string TrainingName { get; set; }//название тренировки
-
-        public bool IsFinished { get; set; }//признак законченной тренировки
-
-        //public string mGymName { get; set; } //название зала //в сущность
-
-        public string LevelName { get; set; }//уровень
-
-        //public string mCoachName { get; set; }//имя инструктора //в сущность
-
-        //public string mCoachFamily { get; set; }//фамилия инструктора //в сущность
-
-        //public string mDescription { get; set; }// описание
-
         public bool IsReplaced { get; set; }//заменена ли тренировка
 
-        public bool IsMustPay { get; set; }//платная
+        [NotMapped]
+        private bool bIsFinished; 
 
-        public string ProgramType { get; set; }//тип программы
+        public bool IsFinished
+        {
+            get=> bIsFinished;
+            set
+            {
+                bIsFinished = value;
+                bIsFinished = EndTime.Day == DateTime.Now.Day && EndTime.DayOfWeek == DateTime.Now.DayOfWeek &&
+                              EndTime.Year == DateTime.Now.Year;
+            }
+        } //признак законченной тренировки
 
-        public bool IsNewTraining { get; set; } //новая тренировка
-
-        public bool Ispopular { get; set; }//признак популярности
-
-        public int PlacesCount { get; set; }//количество записей (вместимость)
-
-        public int FreePlacesCount { get; set; }//количество свободных мест
-
-        public int BusyPlacesCount { get; set; }// количество занятых мест
-
+    
         /// <summary>
         /// Навигация Training 1..* -> 1..1 Gym
         /// </summary>
         public int GymId { get; set; }
         public Gym Gym { get; set; }
-
-        /// <summary>
-        /// Навигация Training 1..1 -> 1..1 Description
-        /// </summary>
-        public int DescriptionId { get; set; }
-        public Description Description { get; set; }
     }
 }

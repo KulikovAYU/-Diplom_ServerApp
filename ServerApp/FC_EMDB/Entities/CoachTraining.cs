@@ -6,7 +6,7 @@
     public class CoachTraining
     {
         public int CoachId { get; set; }
-        public Coach Coach { get; set; }
+        public Employee Coach { get; set; }
 
         public int TrainingId { get; set; }
         public Training Training { get; set; }

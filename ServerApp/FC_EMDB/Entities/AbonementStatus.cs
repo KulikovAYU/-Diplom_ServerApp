@@ -11,15 +11,15 @@ namespace FC_EMDB.Entities.Entities
 
         public AbonementStatus()
         {
-            Abonements = new HashSet<Abonement>();
+            Clients = new HashSet<Client>();
         }
 
         public int Id { get; set; }
 
         public string Name { get; set; }
 
-        public DateTime DaysCount { get; set; } //срок заморозки
+        public DateTime DaysFreezeCount { get; set; } //срок заморозки
 
-        public ICollection<Abonement> Abonements { get; set; } //абонементы
+        public ICollection<Client> Clients { get; set; } //абонементы
     }
 }

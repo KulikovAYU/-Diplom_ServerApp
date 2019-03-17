@@ -6,23 +6,30 @@ namespace FC_EMDB.Database.UnitOfWork
 {
     public interface IUnitOfWork : IDisposable
     {
-        IAbonementRepository Abonements { get; }
 
-        ICoachRepository Coaches { get; }
-
-        ITrainingRepository Trainings { get; }
-
-        ITrainingAbonementRepository TrainingsAbonements { get; }
-
-        IPreregistrationRepository Preregistrations { get; }
-
-        ICoachTrainingRepository CoachesTrainings { get; }
+        IClientRepository Clients { get; }
 
         IAbonementStatusRepository AbonementStatuses { get; }
 
         IAbonementTypeRepository AbonementTypes { get; }
 
-        IDescriptionRepository Descriptions { get; }
+        ITrainingClientRepository TrainingClients { get; }
+
+        IReplacedTrainingRepository ReplacedTrainings { get; }
+
+        ITrainingDataTrainingRepository TrainingDataTrainings { get; }
+
+        ITrainingDataRepository TrainingDatas { get; }
+        
+        ITrainingRepository Trainings { get; }
+
+        IGymRepository Gyms { get; }
+
+        ICoachTrainingRepository CoachesTrainings { get; }
+
+        IEmployeeRepository Employees { get; }
+
+        IRoleRepository Roles { get; }
 
         int Complete();
 

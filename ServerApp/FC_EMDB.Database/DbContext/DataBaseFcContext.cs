@@ -13,19 +13,19 @@ namespace FC_EMDB.Database.DbContext
         }
 
         #region Свойства доступа к полям БД
-        public virtual DbSet<Abonement> Abonements { get; set; }
+        //public virtual DbSet<Abonement> Abonements { get; set; }
         public virtual DbSet<AbonementStatus> AbonementStatuses { get; set; }
         public virtual DbSet<AbonementType> AbonementTypes { get; set; }
         public virtual DbSet<Client> Clients { get; set; }
-        public virtual DbSet<Coach> Coaches { get; set; }
+        //public virtual DbSet<Coach> Coaches { get; set; }
         public virtual DbSet<CoachTraining> CoachTrainings { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<Gym> Gyms { get; set; }
         //public virtual DbSet<Human> Humans { get; set; }
-        public virtual DbSet<PreRegistration> PreRegistrations { get; set; }
+      
         public virtual DbSet<Training> Trainings { get; set; }
-        public virtual DbSet<TrainingAbonement> TrainingAbonements { get; set; }
-        public virtual DbSet<Description> Descriptions { get; set; }
+        public virtual DbSet<TrainingClient> TrainingAbonements { get; set; }
+        //public virtual DbSet<Description> Descriptions { get; set; }
         #endregion
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -35,8 +35,8 @@ namespace FC_EMDB.Database.DbContext
             modelBuilder.ApplyConfiguration(new CoachTrainingConfig());
             modelBuilder.ApplyConfiguration(new EmployeeConfig());
             modelBuilder.ApplyConfiguration(new CoachTrainingConfig());
-            modelBuilder.ApplyConfiguration(new PreRegistrationConfig());
-            modelBuilder.ApplyConfiguration(new TrainingAbonementConfig());
+         
+            modelBuilder.ApplyConfiguration(new TrainingClientConfig());
         }
 
         
