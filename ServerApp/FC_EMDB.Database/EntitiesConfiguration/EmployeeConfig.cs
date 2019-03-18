@@ -15,7 +15,7 @@ namespace FC_EMDB.Database.EntitiesConfiguration
             builder.Property(emp => emp.PasswordHash).IsRequired().HasMaxLength(50);
             builder.Property(emp => emp.Name).IsRequired().HasMaxLength(50);
             builder.Property(emp => emp.Family).IsRequired().HasMaxLength(50);
-            builder.Property(emp => emp.LastName).IsRequired().HasMaxLength(50);
+            //builder.Property(emp => emp.LastName).IsRequired().HasMaxLength(50);
         }
     }
 }

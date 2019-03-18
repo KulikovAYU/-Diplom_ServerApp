@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net.Mime;
 using FC_EMDB.Database.Tools;
 using FC_EMDB.Database.UnitOfWork;
 using FC_EMDB.Entities.Entities;
@@ -207,14 +206,67 @@ namespace FC_EMDB.Database.Initializer
                         AbonementTypeId = context.AbonementTypes.Get(2).Id,
                     }
                 });
+                context.Complete(); //сохраняем изменения
             }
 
             //добавим тренировки клиенту по пред записи
             if (!context.TrainingClients.GetAll().Any())
             {
-                context.Clients.Get(1).TrainingClients.Add(new TrainingClient(){}); //остановился
+                context.Clients.Get(1).TrainingClients.Add(new TrainingClient(){ClientId = context.Clients.Get(1).Id,TrainingId = context.Trainings.Get(2).Id});
+                context.Complete(); //сохраняем изменения
             }
 
+            //проинициализируем роли пользователей системы
+            if (!context.Roles.GetAll().Any())
+            {
+                context.Roles.AddRange(new List<Role>()
+                {
+                    new Role() {Description = "Инструктор групповых программ"},
+                    new Role() {Description = "Администратор"}
+                });
+                context.Complete(); //сохраняем изменения
+            }
+
+            var res = context.Roles.Get(1);
+            //добавим тренеров
+            if (!context.Employees.GetAll().Any())
+            {
+                context.Employees.AddRange(new List<Employee>()
+                {
+                    new Employee() {Name = "Галина", Family = "Елизарова", Login = "gal", PasswordHash = "hash1",Role = context.Roles.Get(1), Desc = "К йоге я пришла более 10 лет назад. И как мне казалось случайно. " +
+                                                                                                               "Больше всего, изначально, меня зацепило то, что мой преподаватель " +
+                                                                                                               "постоянно повторял:«Йога не для всех, она сама выбирает, кто в ней " +
+                                                                                                               "останется, а кто уйдет»! Я говорила себе - так, что значит, йога меня выберет " +
+                                                                                                               "или нет,-захочу и буду заниматься. И каждый раз, когда мне было лень идти на практику " +
+                                                                                                               "я вспоминала именно эти слова и то, что я сама, вроде как, решила заниматься йогой," +
+                                                                                                               "собиралась и шла практиковать"},
+                    new Employee() {Name = "Анастасия", Family = "Молькова", Login = "ana", PasswordHash = "ana1", Role = context.Roles.Get(1), Desc = "Инструктор групповых порграмм. Персональный тренер зала ГП. Составление тренировочных программ и " +
+                                                                                                                 "стиля питания для корректировки фигуры. Сертифицированный тренер TRX."},
+                    new Employee() {Name = "Елена", Family = "Куликова",  Login = "ele", PasswordHash = "ele1", Role = context.Roles.Get(1), Desc = "Инструктор групповых порграмм. Составление программ по снижению веса и коррекции фигуры, повышение " +
+                                                                                                             "выносливости,развитие гибкости. Силовые уроки, степ-аэробика, каланетика в зале."},
+                    new Employee() {Name = "Полина", Family = "Соловьева", Login = "pol", PasswordHash = "pol1",Role = context.Roles.Get(1), Desc = "Инструктор групповых порграмм. Уроки мягкого фитнеса в зале групповых программ. Составление индивидуальных " +
+                                                                                                               "программ по развитию гибкости мышц, связок и позвоночника. Тренер тренажерного зала."},
+                    new Employee() {Name = "Ершова", Family = "Анастасия", Login = "an", PasswordHash = "an1", Role = context.Roles.Get(1), Desc = "Инструктор групповых порграмм. Персональный тренер. Член национального союза фитнеса."},
+
+                    new Employee() {Name = "Ольга", Family = "Осипова", Login = "ol", PasswordHash = "ol1",Role = context.Roles.Get(1), Desc = "Мастер-тренер тренажерного зала. Составление программ по снижению веса и коррекции фигуры; " +
+                                                                                                            "танцевальные программы, мягкий фитнес; силовые программы в зале групповых программ. Сертифицированый инструктор " +
+                                                                                                            "по пилатесу,функциональному тренингу, силовым программам и зумбе"}
+                });
+                context.Complete(); //сохраняем изменения
+            }
+
+            var res11 = context.Employees.Get(2);
+            //добавим тренера к тренировке
+            if (!context.CoachesTrainings.GetAll().Any())
+            {
+                context.Employees.Get(1).CoachTrainings.Add(new CoachTraining() { TrainingId = context.Trainings.Get(1).Id, CoachId = context.Employees.Get(1).Id});
+                context.Employees.Get(2).CoachTrainings.Add(new CoachTraining() { TrainingId = context.Trainings.Get(2).Id, CoachId = context.Employees.Get(2).Id });
+                context.Employees.Get(3).CoachTrainings.Add(new CoachTraining() { TrainingId = context.Trainings.Get(3).Id, CoachId = context.Employees.Get(3).Id });
+                context.Employees.Get(4).CoachTrainings.Add(new CoachTraining() { TrainingId = context.Trainings.Get(4).Id, CoachId = context.Employees.Get(4).Id });
+                context.Employees.Get(5).CoachTrainings.Add(new CoachTraining() { TrainingId = context.Trainings.Get(5).Id, CoachId = context.Employees.Get(5).Id });
+
+                context.Complete(); //сохраняем изменения
+            }
 
 
             //если нет описания

@@ -1,4 +1,5 @@
-﻿using FC_EMDB.Database.UnitOfWork.Interfaces;
+﻿using FC_EMDB.Database.DbContext;
+using FC_EMDB.Database.UnitOfWork.Interfaces;
 using FC_EMDB.Entities.Entities;
 
 namespace FC_EMDB.Database.UnitOfWork
@@ -8,7 +9,7 @@ namespace FC_EMDB.Database.UnitOfWork
     /// </summary>
     public class VisitedTrainingClientRepository : Repository<VisitedTrainingClient>,IVisitedTrainingClientRepository
     {
-        public VisitedTrainingClientRepository(Microsoft.EntityFrameworkCore.DbContext context) : base(context)
+        public VisitedTrainingClientRepository(DataBaseFcContext context) : base(context)
         {
         }
 
