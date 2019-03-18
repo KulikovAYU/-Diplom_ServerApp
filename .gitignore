@@ -4,3 +4,6 @@
 /ServerApp/.vs/ServerApp/v15/Server/sqlite3/storage.ide-wal
 /ServerApp/.vs/ServerApp/v15/Server/sqlite3
 /ServerApp/.vs
+/ServerApp/FC_EMDB.Migrations/bin
+/ServerApp/FC_EMDB.Database/bin
+/ServerApp/FC_EMDB/bin

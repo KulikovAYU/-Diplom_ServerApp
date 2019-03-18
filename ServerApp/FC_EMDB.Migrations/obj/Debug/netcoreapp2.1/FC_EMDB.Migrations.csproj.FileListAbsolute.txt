@@ -12,3 +12,11 @@ D:\MyProject\Diplom\ServerApp\ServerApp\FC_EMDB.Migrations\bin\Debug\netcoreapp2
 D:\MyProject\Diplom\ServerApp\ServerApp\FC_EMDB.Migrations\bin\Debug\netcoreapp2.1\FC_EMDB.Database.pdb
 D:\MyProject\Diplom\ServerApp\ServerApp\FC_EMDB.Migrations\bin\Debug\netcoreapp2.1\FC_EMDB.Entities.pdb
 D:\MyProject\Diplom\ServerApp\ServerApp\FC_EMDB.Migrations\obj\Debug\netcoreapp2.1\FC_EMDB.Migrations.csproj.CopyComplete
+D:\MyProject\Diplom\ServerApp\ServerApp\FC_EMDB.Migrations\bin\Debug\netcoreapp2.1\InitializeData\EmployeePhoto\elizarova-galina.jpg
+D:\MyProject\Diplom\ServerApp\ServerApp\FC_EMDB.Migrations\bin\Debug\netcoreapp2.1\InitializeData\EmployeePhoto\kulikova_elena2.jpg
+D:\MyProject\Diplom\ServerApp\ServerApp\FC_EMDB.Migrations\bin\Debug\netcoreapp2.1\InitializeData\EmployeePhoto\vinnik_2.jpg
+D:\MyProject\Diplom\ServerApp\ServerApp\FC_EMDB.Migrations\bin\Debug\netcoreapp2.1\InitializeData\EmployeePhoto\Molkova Anastasija.jpg
+D:\MyProject\Diplom\ServerApp\ServerApp\FC_EMDB.Migrations\bin\Debug\netcoreapp2.1\InitializeData\EmployeePhoto\Osipova Olga.jpg
+D:\MyProject\Diplom\ServerApp\ServerApp\FC_EMDB.Migrations\bin\Debug\netcoreapp2.1\InitializeData\EmployeePhoto\Soloveva Polina.jpg
+D:\MyProject\Diplom\ServerApp\ServerApp\FC_EMDB.Migrations\bin\Debug\netcoreapp2.1\InitializeData\EmployeePhoto\erchova anastasya.jpg
+D:\MyProject\Diplom\ServerApp\ServerApp\FC_EMDB.Migrations\bin\Debug\netcoreapp2.1\InitializeData\HumanPhoto\kulikov.png

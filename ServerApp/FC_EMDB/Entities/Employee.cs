@@ -1,12 +1,26 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace FC_EMDB.Entities.Entities
 {
     /// <summary>
     /// Класс сотрудника
     /// </summary>
-    public class Employee : Human
+    public class Employee
     {
+        public int Id { get; set; }
+
+        public string Name { get; set; } //имя
+
+        public string Family { get; set; } //фамилия
+
+        public string LastName { get; set; } //отчество
+
+        public DateTime DateOfBirdth { get; set; }
+        //public string mCoachDesc { get; set; }
+
+        public byte[] Photo { get; set; }
+
         public Employee()
         {
             CoachTrainings = new HashSet<CoachTraining>();

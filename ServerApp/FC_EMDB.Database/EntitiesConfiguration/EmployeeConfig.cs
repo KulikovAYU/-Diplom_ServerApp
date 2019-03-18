@@ -8,7 +8,7 @@ namespace FC_EMDB.Database.EntitiesConfiguration
     {
         public void Configure(EntityTypeBuilder<Employee> builder)
         {
-            builder.HasBaseType<Human>();//имеется базовый тип человек
+            //builder.HasBaseType<Human>();//имеется базовый тип человек
             
             
             builder.Property(emp => emp.Login).IsRequired().HasMaxLength(50);

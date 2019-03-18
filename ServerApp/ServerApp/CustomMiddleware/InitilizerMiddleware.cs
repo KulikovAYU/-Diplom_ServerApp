@@ -9,6 +9,7 @@ namespace ServerApp.CustomMiddleware
     public class InitilizerMiddleware
     {
         private RequestDelegate _next;
+        private static bool bIsInitialized = false;
         public InitilizerMiddleware(RequestDelegate next)
         {
             _next = next;
@@ -17,8 +18,11 @@ namespace ServerApp.CustomMiddleware
         public async Task InvokeAsync(HttpContext context,IUnitOfWork unitOfWork)
         {
             await _next(context);
-            DbInitializer.Seed(unitOfWork);
-           
+            if (!bIsInitialized)
+            {
+                DbInitializer.Seed(unitOfWork);
+                bIsInitialized = true;
+            }
         }
     }
 

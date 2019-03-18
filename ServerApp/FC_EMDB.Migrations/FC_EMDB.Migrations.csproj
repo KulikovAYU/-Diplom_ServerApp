@@ -14,4 +14,35 @@
     <ProjectReference Include="..\FC_EMDB.Database\FC_EMDB.Database.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="InitializeData\EmployeePhoto\elizarova-galina.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="InitializeData\EmployeePhoto\erchova anastasya.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="InitializeData\EmployeePhoto\kulikova_elena2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="InitializeData\EmployeePhoto\Molkova Anastasija.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="InitializeData\EmployeePhoto\Osipova Olga.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="InitializeData\EmployeePhoto\Soloveva Polina.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="InitializeData\EmployeePhoto\vinnik_2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="InitializeData\HumanPhoto\kulikov.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="InitializeData\HumanPhoto\" />
+  </ItemGroup>
+
 </Project>
