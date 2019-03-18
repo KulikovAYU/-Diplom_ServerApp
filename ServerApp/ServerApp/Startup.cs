@@ -55,19 +55,14 @@ namespace ServerApp
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseHsts();
+            }
 
-            //  app.ApplicationServices.GetRequiredService<IUnitOfWork>(); //получаем требуемый сервис
-            var res = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
-            app.UseMvc();
-            //IUnitOfWork context1 =
-            //    provider.GetRequiredService<IAbonementRepository>();
-            //IUnitOfWork context =
-            //    provider.GetRequiredService<IUnitOfWork>();
-
-            // app.UseEFCoreInitializer(provider.GetRequiredService<IUnitOfWork>());
-            //инициализация наших сущностей
             app.UseEFCoreInitializer();
-          //  DbInitializer.Seed(provider.GetRequiredService<IUnitOfWork>());
+            app.UseHttpsRedirection();
+            app.UseMvc();
         }
     }
 }
