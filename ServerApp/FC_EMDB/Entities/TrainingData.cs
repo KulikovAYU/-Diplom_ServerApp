@@ -9,7 +9,7 @@ namespace FC_EMDB.Entities.Entities
     {
         public TrainingData()
         {
-            TrainingDataTrainings = new HashSet<TrainingDataTraining>();
+            TrainingDataTrainings = new HashSet<Training>();
             ReplacedTrainings = new HashSet<ReplcedTraining>();
         }
 
@@ -22,7 +22,7 @@ namespace FC_EMDB.Entities.Entities
         public bool IsNewTraining { get; set; } //новая тренировка
         public bool Ispopular { get; set; }//признак популярности
 
-        public ICollection<TrainingDataTraining> TrainingDataTrainings { get; set; }
+        public ICollection<Training> TrainingDataTrainings { get; set; }
         public ICollection<ReplcedTraining> ReplacedTrainings { get; set; }
 
         public TrainingLevel Level { get; set; }

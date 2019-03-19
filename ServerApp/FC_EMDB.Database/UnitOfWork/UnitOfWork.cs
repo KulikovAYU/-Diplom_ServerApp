@@ -20,7 +20,6 @@ namespace FC_EMDB.Database.UnitOfWork
             AbonementStatuses = serviceProvider.GetRequiredService<IAbonementStatusRepository>();
             AbonementTypes = serviceProvider.GetRequiredService<IAbonementTypeRepository>();
             TrainingClients = serviceProvider.GetRequiredService<ITrainingClientRepository>();
-            TrainingDataTrainings = serviceProvider.GetRequiredService<ITrainingDataTrainingRepository>();
             TrainingDatas = serviceProvider.GetRequiredService<ITrainingDataRepository>();
             Trainings = serviceProvider.GetRequiredService<ITrainingRepository>();
             Gyms = serviceProvider.GetRequiredService<IGymRepository>();
@@ -52,10 +51,6 @@ namespace FC_EMDB.Database.UnitOfWork
         /// Репозиторий для работы с посещениями
         /// </summary>
         public ITrainingClientRepository TrainingClients { get; }
-        /// <summary>
-        /// Репозиторий для работы с расписанием
-        /// </summary>
-        public ITrainingDataTrainingRepository TrainingDataTrainings { get; }
         /// <summary>
         /// Репозиторий для работы с данными о тренировке
         /// </summary>

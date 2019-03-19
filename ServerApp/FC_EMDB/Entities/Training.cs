@@ -13,9 +13,9 @@ namespace FC_EMDB.Entities.Entities
         public ICollection<CoachTraining> CoachTrainings { get; set; }
         public ICollection<TrainingClient> TrainingClients { get; set; }
         public ICollection<ReplcedTraining> ReplcedTrainings { get; set; }
-        public ICollection<TrainingDataTraining> TrainingDataTrainings { get; set; }
+       
         public ICollection<VisitedTrainingClient> VisitedTrainingDataTrainings { get; set; }
-
+        public TrainingData TrainingData { get; set; }
 
 
         public Training()
@@ -23,7 +23,6 @@ namespace FC_EMDB.Entities.Entities
             CoachTrainings = new HashSet<CoachTraining>();
             TrainingClients = new HashSet<TrainingClient>();
             ReplcedTrainings = new HashSet<ReplcedTraining>();
-            TrainingDataTrainings = new HashSet<TrainingDataTraining>();
             VisitedTrainingDataTrainings = new HashSet<VisitedTrainingClient>();
         }
 
@@ -34,6 +33,17 @@ namespace FC_EMDB.Entities.Entities
         public DateTime EndTime { get; set; }//время окончания тренировки
 
         public bool IsReplaced { get; set; }//заменена ли тренировка
+
+        private double minutes;
+        [NotMapped]
+        public double Minutes {
+            get => minutes;
+            set { minutes = value;
+                var buf = minutes;
+                EndTime = StartTime;
+                EndTime = EndTime.AddMinutes(55);
+            }
+        }
 
         [NotMapped]
         private bool bIsFinished; 

@@ -17,8 +17,6 @@ namespace FC_EMDB.Database.UnitOfWork
 
         IReplacedTrainingRepository ReplacedTrainings { get; }
 
-        ITrainingDataTrainingRepository TrainingDataTrainings { get; }
-
         ITrainingDataRepository TrainingDatas { get; }
         
         ITrainingRepository Trainings { get; }

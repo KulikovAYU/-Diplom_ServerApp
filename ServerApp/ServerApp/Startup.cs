@@ -29,7 +29,6 @@ namespace ServerApp
             services.AddTransient<IAbonementStatusRepository, AbonementStatusRepository>();
             services.AddTransient<IAbonementTypeRepository, AbonementTypeRepository>();
             services.AddTransient<ITrainingClientRepository, TrainingClientRepository>();
-            services.AddTransient<ITrainingDataTrainingRepository, TrainingDataTrainingRepository>();
             services.AddTransient<ITrainingDataRepository, TrainingDataRepository>();
             services.AddTransient<ITrainingRepository, TrainingRepository>();
             services.AddTransient<IGymRepository, GymRepository>();

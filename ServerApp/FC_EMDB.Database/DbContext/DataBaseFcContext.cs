@@ -25,7 +25,6 @@ namespace FC_EMDB.Database.DbContext
         public DbSet<Gym> Gyms { get; set; }
         public DbSet<TrainingClient> TrainingClients { get; set; }
         public DbSet<TrainingData> TrainingDatas { get; set; }
-        public DbSet<TrainingDataTraining> TrainingDataTrainings { get; set; }
         public DbSet<Training> Trainings { get; set; }
         public DbSet<TrainingLevel> TrainingLevels { get; set; }
         public DbSet<VisitedTrainingClient> VisitedTrainingClients { get; set; }
@@ -40,7 +39,6 @@ namespace FC_EMDB.Database.DbContext
             modelBuilder.ApplyConfiguration(new EmployeeConfig());
             modelBuilder.ApplyConfiguration(new ReplacedTrainingConfig());
             modelBuilder.ApplyConfiguration(new TrainingClientConfig());
-            modelBuilder.ApplyConfiguration(new TrainingDataTrainingConfig());
             modelBuilder.ApplyConfiguration(new PayTrainingConfig());
             modelBuilder.ApplyConfiguration(new VisitedTrainingClientConfig());
         }

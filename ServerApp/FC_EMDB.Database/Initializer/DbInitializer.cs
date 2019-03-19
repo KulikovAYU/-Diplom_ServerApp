@@ -12,7 +12,7 @@ namespace FC_EMDB.Database.Initializer
         public static void Seed(IUnitOfWork context)
         {
             // UnitOfWork.IUnitOfWork context = IoC.ApplicationDbContext; //1 способ - получить из IoC
-      
+
             //если нет статусов абонемента
             if (!context.AbonementStatuses.GetAll().Any())
             {
@@ -41,7 +41,8 @@ namespace FC_EMDB.Database.Initializer
                 context.TrainingLevels.AddRange(new List<TrainingLevel>()
                 {
                     new TrainingLevel() {Name = "Для всех уровней подготовки"},
-                    new TrainingLevel() {Name = "Низкая интенсивность"}
+                    new TrainingLevel() {Name = "Низкая интенсивность"},
+                    new TrainingLevel() {Name = "Высокая интенсивность"}
                 });
             }
 
@@ -52,7 +53,8 @@ namespace FC_EMDB.Database.Initializer
                 {
                     new ProgramType() {Name = "Специальные программы"},
                     new ProgramType() {Name = "Силовой и функциональный тренинг"},
-                    new ProgramType() {Name = "Mind&Body (Мягкий фитнес)"}
+                    new ProgramType() {Name = "Mind&Body (Мягкий фитнес)"},
+                    new ProgramType() {Name = "Кардио тренинг"},
                 });
             }
 
@@ -68,7 +70,7 @@ namespace FC_EMDB.Database.Initializer
             }
 
             //если нет данных о тренировке
-                if (!context.TrainingDatas.GetAll().Any())
+            if (!context.TrainingDatas.GetAll().Any())
             {
                 context.TrainingDatas.AddRange(new List<TrainingData>()
                 {
@@ -93,7 +95,7 @@ namespace FC_EMDB.Database.Initializer
                             "нет никакой осевой (вертикальной) нагрузки на позвоночник",
                         Level = context.TrainingLevels.Get(1),
                         ProgramType = context.ProgramTypes.Get(1),
-                        PlacesCount = 10, 
+                        PlacesCount = 10,
                     },
                     new TrainingData()
                     {
@@ -107,7 +109,7 @@ namespace FC_EMDB.Database.Initializer
                     },
                     new TrainingData()
                     {
-                        TrainingName = "ABS+Stretch", TrainingDescription =
+                        TrainingName = "ABS and Stretch", TrainingDescription =
                             "Урок, направленный на развитие гибкости, с использованием специальных упражнений на растягивание. " +
                             "Увеличивает подвижность суставов, эластичность связок, дает общее расслабление и релаксацию.",
                         Level = context.TrainingLevels.Get(1),
@@ -122,6 +124,109 @@ namespace FC_EMDB.Database.Initializer
                         Level = context.TrainingLevels.Get(1),
                         ProgramType = context.ProgramTypes.Get(3),
                         Ispopular = true
+                    },
+                    new TrainingData()
+                    {
+                        TrainingName = "Здоровая спина", TrainingDescription ="Улучшит функционирование внутренних органов " +
+                                                                              "и систем организма, укрепит мышечно-связочный аппарат, " +
+                                                                              "скорректирует мышечный дисбаланс, будет способствовать развитию" +
+                                                                              " гибкости позвоночника и тела в целом, позволит выработать правильную осанку." +
+                                                                              " Урок рекомендован для всех уровней подготовки.",
+                        Level = context.TrainingLevels.Get(1),
+                        ProgramType = context.ProgramTypes.Get(1),
+                        Ispopular = true
+                    },
+                    new TrainingData()
+                    {
+                        TrainingName = "STEP ABS", TrainingDescription ="Step+ABS – это отличная комбинированная кардио тренировка, " +
+                                                                         "сочетающая нагрузку на мышцы брюшного пресса и занятия на степ-платформе.",
+                        Level = context.TrainingLevels.Get(3),
+                        ProgramType = context.ProgramTypes.Get(2)
+                    },
+                    new TrainingData()
+                    {
+                        TrainingName = "#запускягодицы", TrainingDescription ="Функциональная тренировка, направленная на проработку ягодичных мышц " +
+                                                                              "и мышц брюшного пресса. Тренировка состоит из нескольких блоков, с использованием" +
+                                                                              " различного оборудования или выполнения упражнений с собственным весом.",
+                        Level = context.TrainingLevels.Get(1),
+                        ProgramType = context.ProgramTypes.Get(2)
+                    },
+                    new TrainingData()
+                    {
+                        TrainingName = "Upper Body", TrainingDescription ="(англ. «upper» – верх и «body» – тело) —силовой урок, направленный на проработку мышечных " +
+                                                                          "групп верхней части тела: рук, плечевого пояса, спины и брюшного пресса. При этом могут использоваться " +
+                                                                          "дополнительные отягощения: гантели, бодибары, степ платформы и т.д Тренировка подходит для любого " +
+                                                                          "уровня подготовленности.Главная задача тренировки Upper Body. – это подтянуть живот, сделав мышцы пресса " +
+                                                                          "крепкими, а талию узкой, привести мышцы рук в тонус, а также укрепить мышцы груди и спины, что важно для " +
+                                                                          "красивой осанки.",
+                        Level = context.TrainingLevels.Get(1),
+                        ProgramType = context.ProgramTypes.Get(2)
+                    },
+                    new TrainingData()
+                    {
+                        TrainingName = "Stretch", TrainingDescription ="Урок, направленный на развитие гибкости, с использованием специальных упражнений на растягивание. " +
+                                                                        "Увеличивает подвижность суставов, эластичность связок, даёт общее расслабление и релаксацию.",
+                        Level = context.TrainingLevels.Get(1),
+                        ProgramType = context.ProgramTypes.Get(3)
+                    },
+                    new TrainingData()
+                    {
+                        TrainingName = "Callanetics", TrainingDescription ="Уникальная система упражнений, возбуждающая активность глубоко расположенных мышечных групп," +
+                                                                            " способствующая оздоровлению организма, снижению веса и уменьшению объемов тела. В статичном режиме " +
+                                                                            "тренируются все мышечные группы и связочный аппарат.",
+                        Level = context.TrainingLevels.Get(1),
+                        ProgramType = context.ProgramTypes.Get(3)
+                    },
+                    new TrainingData()
+                    {
+                        TrainingName = "STEP INTERVAL", TrainingDescription ="Step interval - это аэробно-силовой фитнес, сочетающий чередование упражнений " +
+                                                                             "(прыжков, приседаний, отжиманий и т.д.) с базовыми шагами на степ-платформе. ",
+                        Level = context.TrainingLevels.Get(3),
+                        ProgramType = context.ProgramTypes.Get(2)
+                    },
+                    new TrainingData()
+                    {
+                        TrainingName = "Soft Mix", TrainingDescription ="Фитнес микс – это синтез различных видов фитнеса, которые комбинированно применяются" +
+                                                                        " в условиях одной тренировки либо чередуются от занятия к занятию.",
+                        Level = context.TrainingLevels.Get(2),
+                        ProgramType = context.ProgramTypes.Get(3)
+                    },
+                    new TrainingData()
+                    {
+                        TrainingName = "PUMP", TrainingDescription ="Это целостная система низко-ударной тренировки с использованием облегченной штанги." +
+                                                                    " Благодаря PUMP прорабатываются, укрепляются и приводятся в тонус все мышцы тела. " +
+                                                                    "Тренировка характеризуется особым агрессивным драйвом и приносит гораздо больше результатов " +
+                                                                    "и удовольствия, чем традиционное монотонное поднятие тяжестей. Она подходит как для мужчин, " +
+                                                                    "так и для женщин всех возрастов. Для продвинутого уровня подготовки.",
+                        Level = context.TrainingLevels.Get(3),
+                        ProgramType = context.ProgramTypes.Get(2)
+                    },
+                    new TrainingData()
+                    {
+                        TrainingName = "Тabata", TrainingDescription ="Интервальная тренировка, которая включает в себя 10 блоков по 4 минуты. " +
+                                                                      "Табата – это сочетание кардио и силовой нагрузок. Тренирует выносливость " +
+                                                                      "как ни одна классическая тренировка. В короткий промежуток времени выполняя " +
+                                                                      "упражнения происходит максимально быстрое жиросжигание. Упражнения различные по " +
+                                                                      "степени сложности. Урок подходит для людей с разным уровнем подготовки.",
+                        Level = context.TrainingLevels.Get(3),
+                        ProgramType = context.ProgramTypes.Get(4)
+                    },
+                    new PayTraining()
+                    {
+                        TrainingName = "Шпагат", TrainingDescription ="Занятие включает в себя комплекс упражнений, направленных на улучшение эластичности " +
+                                                                      "мышц, подвижность суставов, что позволит вам легко садиться на продольный и поперечный " +
+                                                                      "шпагат",
+                        Level = context.TrainingLevels.Get(3),
+                        ProgramType = context.ProgramTypes.Get(4),
+                        PlacesCount = 5
+                    },
+                    new TrainingData()
+                    {
+                        TrainingName = "#Superпресс", TrainingDescription ="Занятие направлено на укрепление брюшного пресса и спины. Сочетает в себе разминку, " +
+                                                                           "разогревающую позвоночник, суставы и непосредственно мышцы живота и спины , и комплекс упражнений, позволяющий быстро " +
+                                                                           "и эффективно проработать все мышцы брюшного пресса и спины.",
+                        Level = context.TrainingLevels.Get(2),
+                        ProgramType = context.ProgramTypes.Get(3)
                     }
                 });
             }
@@ -131,48 +236,178 @@ namespace FC_EMDB.Database.Initializer
             {
                 context.Trainings.AddRange(new List<Training>()
                 {
+                    #region Тренировки на первый день
+                  
                     new Training()
                     {
-                        StartTime = new DateTime(2019, 2, 8, 7, 30, 0),
-                        EndTime =   new DateTime(2019, 2, 8, 8, 30, 0),
-                        Gym = context.Gyms.Get(1)
+                        StartTime = new DateTime(2019, 4, 8, 9, 00, 0),
+                        Minutes = 55,
+                        Gym = context.Gyms.Get(1),
+                        TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "Здоровая спина")
                     },
                     new Training()
                     {
-                        StartTime = new DateTime(2019, 2, 8, 8, 30, 0),
-                        EndTime = new DateTime(2019, 2, 8, 9, 30, 0),
-                        Gym = context.Gyms.Get(2)
+                        StartTime = new DateTime(2019, 4, 8, 9, 00, 0),
+                        Minutes = 55,
+                        Gym = context.Gyms.Get(2),
+                        TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "TRX")
                     },
                     new Training()
                     {
-                        StartTime = new DateTime(2019, 2, 8, 10, 00, 0),
-                        EndTime = new DateTime(2019, 2, 8, 10, 30, 0),
-                        Gym = context.Gyms.Get(1)
+                        StartTime = new DateTime(2019, 4, 8, 10, 00, 0),
+                        Minutes = 55,
+                        Gym = context.Gyms.Get(1),
+                        TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "STEP ABS")
+                    },
+                     new Training()
+                    {
+                        StartTime = new DateTime(2019, 4, 8, 11, 00, 0),
+                        Minutes = 55,
+                        Gym = context.Gyms.Get(1),
+                        TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "#запускягодицы")
                     },
                     new Training()
                     {
-                        StartTime = new DateTime(2019, 2, 8, 16, 00, 0),
-                        EndTime = new DateTime(2019, 2, 8, 16, 30, 00),
-                        Gym = context.Gyms.Get(1)
+                        StartTime = new DateTime(2019, 4, 8, 15, 00, 0),
+                        Minutes = 55,
+                        Gym = context.Gyms.Get(1),
+                        TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "Upper Body")
                     },
                     new Training()
                     {
-                        StartTime = new DateTime(2019, 2, 8, 17, 30, 00),
-                        EndTime = new DateTime(2019, 2, 8, 18, 30, 00),
-                        Gym = context.Gyms.Get(1)
+                        StartTime = new DateTime(2019, 4, 8, 16, 00, 0),
+                        Minutes = 55,
+                        Gym = context.Gyms.Get(1),
+                        TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "Stretch")
+                    },
+                    new Training()
+                    {
+                        StartTime = new DateTime(2019, 4, 8, 17, 30, 0),
+                        Minutes = 55,
+                        Gym = context.Gyms.Get(1),
+                        TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "Callanetics")
+                    },
+                    new Training()
+                    {
+                        StartTime = new DateTime(2019, 4, 8, 18, 30, 0),
+                        Minutes = 55,
+                        Gym = context.Gyms.Get(1),
+                        TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "STEP INTERVAL")
+                    },
+                    new Training()
+                    {
+                        StartTime = new DateTime(2019, 4, 8, 18, 30, 0),
+                        Minutes = 55,
+                        Gym = context.Gyms.Get(2),
+                        TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "TRX")
+                    },
+                    new Training()
+                    {
+                        StartTime = new DateTime(2019, 4, 8, 18, 30, 0),
+                        Minutes = 55,
+                        Gym = context.Gyms.Get(2),
+                        TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "Hatha Yoga")
+                    },
+                    #endregion
+
+                    #region Тренировки на второй день
+                    new Training()
+                    {
+                        StartTime = new DateTime(2019, 4, 9, 9, 0, 0),
+                        Minutes = 55,
+                        Gym = context.Gyms.Get(2),
+                        TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "TRX")
+                    },
+                    new Training()
+                    {
+                        StartTime = new DateTime(2019, 4, 9, 9, 0, 0),
+                        Minutes = 55,
+                        Gym = context.Gyms.Get(1),
+                        TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "Здоровая спина")
+                    },
+                    new Training()
+                    {
+                        StartTime = new DateTime(2019, 4, 9, 10, 0, 0),
+                        Minutes = 55,
+                        Gym = context.Gyms.Get(1),
+                        TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "#Superпресс")
+                    },
+                    new Training()
+                    {
+                        StartTime = new DateTime(2019, 4, 9, 11, 0, 0),
+                        Minutes = 55,
+                        Gym = context.Gyms.Get(1),
+                        TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "#запускягодицы")
+                    },
+                    new Training()
+                    {
+                        StartTime = new DateTime(2019, 4, 9, 11, 0, 0),
+                        Minutes = 55,
+                        Gym = context.Gyms.Get(2),
+                        TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "TRX")
+                    },
+                    new Training()
+                    {
+                        StartTime = new DateTime(2019, 4, 9, 14, 0, 0),
+                        Minutes = 55,
+                        Gym = context.Gyms.Get(1),
+                        TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "Tabata")
+                    },
+                    new Training()
+                    {
+                        StartTime = new DateTime(2019, 4, 9, 15, 0, 0),
+                        Minutes = 55,
+                        Gym = context.Gyms.Get(1),
+                        TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "Callanetics")
+                    },
+                    new Training()
+                    {
+                        StartTime = new DateTime(2019, 4, 9, 17, 30, 0),
+                        Minutes = 55,
+                        Gym = context.Gyms.Get(1),
+                        TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "ABS and Stretch")
+                    },
+                    new Training()
+                    {
+                        StartTime = new DateTime(2019, 4, 9, 17, 30, 0),
+                        Minutes = 55,
+                        Gym = context.Gyms.Get(2),
+                        TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "Шпагат")
+                    },
+                    new Training()
+                    {
+                        StartTime = new DateTime(2019, 4, 9, 18, 30, 0),
+                        Minutes = 55,
+                        Gym = context.Gyms.Get(1),
+                        TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "#запускягодицы")
+                    },
+                    new Training()
+                    {
+                        StartTime = new DateTime(2019, 4, 9, 18, 30, 0),
+                        Minutes = 55,
+                        Gym = context.Gyms.Get(2),
+                        TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "TRX")
+                    },
+                    new Training()
+                    {
+                        StartTime = new DateTime(2019, 4, 9, 19, 30, 0),
+                        Minutes = 55,
+                        Gym = context.Gyms.Get(2),
+                        TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "Hatha Yoga")
                     }
+                    #endregion
                 });
             }
 
-            //если нет таблицы TrainingDataTrainings
-            if (!context.TrainingDataTrainings.GetAll().Any())
-            {
-                context.Trainings.Get(1).TrainingDataTrainings.Add(new TrainingDataTraining() { TrainingDataId = context.TrainingDatas.Get(1).Id, TrainingId = context.Trainings.Get(1).Id });
-                context.Trainings.Get(1).TrainingDataTrainings.Add(new TrainingDataTraining() { TrainingDataId = context.TrainingDatas.Get(2).Id, TrainingId = context.Trainings.Get(2).Id });
-                context.Trainings.Get(1).TrainingDataTrainings.Add(new TrainingDataTraining() { TrainingDataId = context.TrainingDatas.Get(3).Id, TrainingId = context.Trainings.Get(3).Id });
-                //создаем замененную тернировку
-                context.Trainings.Get(1).ReplcedTrainings.Add(new ReplcedTraining() { TrainingDataId = context.TrainingDatas.Get(4).Id, TrainingId = context.Trainings.Get(4).Id });
-            }
+            ////если нет таблицы TrainingDataTrainings
+            //if (!context.TrainingDataTrainings.GetAll().Any())
+            //{
+            //    context.Trainings.Get(1).TrainingDataTrainings.Add(new TrainingDataTraining() { TrainingDataId = context.TrainingDatas.Get(1).Id, TrainingId = context.Trainings.Get(1).Id });
+            //    context.Trainings.Get(1).TrainingDataTrainings.Add(new TrainingDataTraining() { TrainingDataId = context.TrainingDatas.Get(2).Id, TrainingId = context.Trainings.Get(2).Id });
+            //    context.Trainings.Get(1).TrainingDataTrainings.Add(new TrainingDataTraining() { TrainingDataId = context.TrainingDatas.Get(3).Id, TrainingId = context.Trainings.Get(3).Id });
+            //    //создаем замененную тернировку
+            //    context.Trainings.Get(1).ReplcedTrainings.Add(new ReplcedTraining() { TrainingDataId = context.TrainingDatas.Get(4).Id, TrainingId = context.Trainings.Get(4).Id });
+            //}
 
             //Создадим клиента
             if (!context.Clients.GetAll().Any())
@@ -198,7 +433,7 @@ namespace FC_EMDB.Database.Initializer
             //добавим тренировки клиенту по предварительной записи
             if (!context.TrainingClients.GetAll().Any())
             {
-                context.Clients.Get(1).TrainingClients.Add(new TrainingClient(){ClientId = context.Clients.Get(1).Id,TrainingId = context.Trainings.Get(2).Id});
+                context.Clients.Get(1).TrainingClients.Add(new TrainingClient() { ClientId = context.Clients.Get(1).Id, TrainingId = context.Trainings.Get(2).Id });
                 context.Complete(); //сохраняем изменения
             }
 
@@ -257,11 +492,33 @@ namespace FC_EMDB.Database.Initializer
             //добавим тренера к тренировке
             if (!context.CoachesTrainings.GetAll().Any())
             {
-                context.Employees.Get(1).CoachTrainings.Add(new CoachTraining() { TrainingId = context.Trainings.Get(1).Id, CoachId = context.Employees.Get(1).Id});
+                #region Тренировки на первый день
+                context.Employees.Get(6).CoachTrainings.Add(new CoachTraining() { TrainingId = context.Trainings.Get(1).Id, CoachId = context.Employees.Get(6).Id });
                 context.Employees.Get(2).CoachTrainings.Add(new CoachTraining() { TrainingId = context.Trainings.Get(2).Id, CoachId = context.Employees.Get(2).Id });
-                context.Employees.Get(3).CoachTrainings.Add(new CoachTraining() { TrainingId = context.Trainings.Get(3).Id, CoachId = context.Employees.Get(3).Id });
-                context.Employees.Get(4).CoachTrainings.Add(new CoachTraining() { TrainingId = context.Trainings.Get(4).Id, CoachId = context.Employees.Get(4).Id });
-                context.Employees.Get(5).CoachTrainings.Add(new CoachTraining() { TrainingId = context.Trainings.Get(5).Id, CoachId = context.Employees.Get(5).Id });
+                context.Employees.Get(2).CoachTrainings.Add(new CoachTraining() { TrainingId = context.Trainings.Get(3).Id, CoachId = context.Employees.Get(2).Id });
+                context.Employees.Get(6).CoachTrainings.Add(new CoachTraining() { TrainingId = context.Trainings.Get(4).Id, CoachId = context.Employees.Get(6).Id });
+                context.Employees.Get(4).CoachTrainings.Add(new CoachTraining() { TrainingId = context.Trainings.Get(5).Id, CoachId = context.Employees.Get(4).Id });
+                context.Employees.Get(4).CoachTrainings.Add(new CoachTraining() { TrainingId = context.Trainings.Get(6).Id, CoachId = context.Employees.Get(4).Id });
+                context.Employees.Get(4).CoachTrainings.Add(new CoachTraining() { TrainingId = context.Trainings.Get(7).Id, CoachId = context.Employees.Get(4).Id });
+                context.Employees.Get(6).CoachTrainings.Add(new CoachTraining() { TrainingId = context.Trainings.Get(8).Id, CoachId = context.Employees.Get(6).Id });
+                context.Employees.Get(2).CoachTrainings.Add(new CoachTraining() { TrainingId = context.Trainings.Get(9).Id, CoachId = context.Employees.Get(2).Id });
+                context.Employees.Get(1).CoachTrainings.Add(new CoachTraining() { TrainingId = context.Trainings.Get(10).Id, CoachId = context.Employees.Get(1).Id });
+                #endregion
+
+                #region Тренировки на второй день
+                context.Employees.Get(2).CoachTrainings.Add(new CoachTraining() { TrainingId = context.Trainings.Get(11).Id, CoachId = context.Employees.Get(2).Id });
+                context.Employees.Get(6).CoachTrainings.Add(new CoachTraining() { TrainingId = context.Trainings.Get(12).Id, CoachId = context.Employees.Get(6).Id });
+                context.Employees.Get(2).CoachTrainings.Add(new CoachTraining() { TrainingId = context.Trainings.Get(13).Id, CoachId = context.Employees.Get(2).Id });
+                context.Employees.Get(6).CoachTrainings.Add(new CoachTraining() { TrainingId = context.Trainings.Get(14).Id, CoachId = context.Employees.Get(6).Id });
+                context.Employees.Get(2).CoachTrainings.Add(new CoachTraining() { TrainingId = context.Trainings.Get(15).Id, CoachId = context.Employees.Get(2).Id });
+                context.Employees.Get(5).CoachTrainings.Add(new CoachTraining() { TrainingId = context.Trainings.Get(16).Id, CoachId = context.Employees.Get(5).Id });
+                context.Employees.Get(2).CoachTrainings.Add(new CoachTraining() { TrainingId = context.Trainings.Get(17).Id, CoachId = context.Employees.Get(2).Id });
+                context.Employees.Get(4).CoachTrainings.Add(new CoachTraining() { TrainingId = context.Trainings.Get(18).Id, CoachId = context.Employees.Get(4).Id });
+                context.Employees.Get(6).CoachTrainings.Add(new CoachTraining() { TrainingId = context.Trainings.Get(19).Id, CoachId = context.Employees.Get(6).Id });
+                context.Employees.Get(2).CoachTrainings.Add(new CoachTraining() { TrainingId = context.Trainings.Get(20).Id, CoachId = context.Employees.Get(2).Id });
+                context.Employees.Get(1).CoachTrainings.Add(new CoachTraining() { TrainingId = context.Trainings.Get(21).Id, CoachId = context.Employees.Get(1).Id });
+                #endregion
+
             }
 
             context.Complete(); //сохраняем изменения
