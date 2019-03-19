@@ -56,11 +56,11 @@ namespace ServerApp
             }
             else
             {
-                app.UseHsts();
+              //  app.UseHsts();
             }
 
             app.UseEFCoreInitializer();
-            app.UseHttpsRedirection();
+           // app.UseHttpsRedirection();
             app.UseMvc();
         }
     }
