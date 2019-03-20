@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FC_EMDB.Migrations\FC_EMDB.Migrations.csproj" />
+    <ProjectReference Include="..\JsonConverters\JsonConverters.csproj" />
   </ItemGroup>
 
 </Project>

@@ -25,7 +25,10 @@ namespace FC_EMDB.Entities.Entities
         public ICollection<Training> TrainingDataTrainings { get; set; }
         public ICollection<ReplcedTraining> ReplacedTrainings { get; set; }
 
+        public int LevelId { get; set; }//внешний ключ уровня тренировки
         public TrainingLevel Level { get; set; }
+        public int ProgramTypeId { get; set; }//внешний ключ типа программы
         public ProgramType ProgramType { get; set; }//тип программы
+
     }
 }

@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FC_EMDB.Database\FC_EMDB.Database.csproj" />
+    <ProjectReference Include="..\FC_EMDB\FC_EMDB.Entities.csproj" />
+  </ItemGroup>
+
+</Project>

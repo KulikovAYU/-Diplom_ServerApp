@@ -4700,6 +4700,20 @@
         "runtime": {
           "bin/placeholder/FC_EMDB.Migrations.dll": {}
         }
+      },
+      "JsonConverters/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "FC_EMDB.Database": "1.0.0",
+          "FC_EMDB.Entities": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/JsonConverters.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/JsonConverters.dll": {}
+        }
       }
     }
   },
@@ -12650,11 +12664,17 @@
       "type": "project",
       "path": "../FC_EMDB.Migrations/FC_EMDB.Migrations.csproj",
       "msbuildProject": "../FC_EMDB.Migrations/FC_EMDB.Migrations.csproj"
+    },
+    "JsonConverters/1.0.0": {
+      "type": "project",
+      "path": "../JsonConverters/JsonConverters.csproj",
+      "msbuildProject": "../JsonConverters/JsonConverters.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
       "FC_EMDB.Migrations >= 1.0.0",
+      "JsonConverters >= 1.0.0",
       "Microsoft.AspNetCore.App >= 2.1.1",
       "Microsoft.NETCore.App >= 2.1.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.1.1"
@@ -12692,6 +12712,9 @@
           "projectReferences": {
             "D:\\MyProject\\Diplom\\ServerApp\\ServerApp\\FC_EMDB.Migrations\\FC_EMDB.Migrations.csproj": {
               "projectPath": "D:\\MyProject\\Diplom\\ServerApp\\ServerApp\\FC_EMDB.Migrations\\FC_EMDB.Migrations.csproj"
+            },
+            "D:\\MyProject\\Diplom\\ServerApp\\ServerApp\\JsonConverters\\JsonConverters.csproj": {
+              "projectPath": "D:\\MyProject\\Diplom\\ServerApp\\ServerApp\\JsonConverters\\JsonConverters.csproj"
             }
           }
         }

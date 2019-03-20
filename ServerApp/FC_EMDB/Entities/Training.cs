@@ -65,5 +65,6 @@ namespace FC_EMDB.Entities.Entities
         /// </summary>
         public int GymId { get; set; }
         public Gym Gym { get; set; }
+      
     }
 }

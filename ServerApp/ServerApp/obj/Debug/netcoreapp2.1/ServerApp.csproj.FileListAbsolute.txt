@@ -27,3 +27,5 @@ D:\MyProject\Diplom\ServerApp\ServerApp\ServerApp\bin\Debug\netcoreapp2.1\Initia
 D:\MyProject\Diplom\ServerApp\ServerApp\ServerApp\bin\Debug\netcoreapp2.1\InitializeData\EmployeePhoto\Soloveva Polina.jpg
 D:\MyProject\Diplom\ServerApp\ServerApp\ServerApp\bin\Debug\netcoreapp2.1\InitializeData\EmployeePhoto\erchova anastasya.jpg
 D:\MyProject\Diplom\ServerApp\ServerApp\ServerApp\bin\Debug\netcoreapp2.1\InitializeData\HumanPhoto\kulikov.png
+D:\MyProject\Diplom\ServerApp\ServerApp\ServerApp\bin\Debug\netcoreapp2.1\JsonConverters.dll
+D:\MyProject\Diplom\ServerApp\ServerApp\ServerApp\bin\Debug\netcoreapp2.1\JsonConverters.pdb

@@ -1,0 +1,14 @@
+D:\MyProject\Diplom\ServerApp\ServerApp\JsonConverters\bin\Debug\netcoreapp2.1\JsonConverters.deps.json
+D:\MyProject\Diplom\ServerApp\ServerApp\JsonConverters\bin\Debug\netcoreapp2.1\JsonConverters.dll
+D:\MyProject\Diplom\ServerApp\ServerApp\JsonConverters\bin\Debug\netcoreapp2.1\JsonConverters.pdb
+D:\MyProject\Diplom\ServerApp\ServerApp\JsonConverters\bin\Debug\netcoreapp2.1\FC_EMDB.Entities.dll
+D:\MyProject\Diplom\ServerApp\ServerApp\JsonConverters\bin\Debug\netcoreapp2.1\FC_EMDB.Entities.pdb
+D:\MyProject\Diplom\ServerApp\ServerApp\JsonConverters\obj\Debug\netcoreapp2.1\JsonConverters.csprojAssemblyReference.cache
+D:\MyProject\Diplom\ServerApp\ServerApp\JsonConverters\obj\Debug\netcoreapp2.1\JsonConverters.csproj.CoreCompileInputs.cache
+D:\MyProject\Diplom\ServerApp\ServerApp\JsonConverters\obj\Debug\netcoreapp2.1\JsonConverters.AssemblyInfoInputs.cache
+D:\MyProject\Diplom\ServerApp\ServerApp\JsonConverters\obj\Debug\netcoreapp2.1\JsonConverters.AssemblyInfo.cs
+D:\MyProject\Diplom\ServerApp\ServerApp\JsonConverters\obj\Debug\netcoreapp2.1\JsonConverters.csproj.CopyComplete
+D:\MyProject\Diplom\ServerApp\ServerApp\JsonConverters\obj\Debug\netcoreapp2.1\JsonConverters.dll
+D:\MyProject\Diplom\ServerApp\ServerApp\JsonConverters\obj\Debug\netcoreapp2.1\JsonConverters.pdb
+D:\MyProject\Diplom\ServerApp\ServerApp\JsonConverters\bin\Debug\netcoreapp2.1\FC_EMDB.Database.dll
+D:\MyProject\Diplom\ServerApp\ServerApp\JsonConverters\bin\Debug\netcoreapp2.1\FC_EMDB.Database.pdb
