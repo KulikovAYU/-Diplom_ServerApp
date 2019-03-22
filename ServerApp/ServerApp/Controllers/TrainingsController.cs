@@ -144,7 +144,7 @@ namespace ServerApp.Controllers
         [HttpPost]
         public ActionResult<Employee> Post([FromBody]Training currentTraining)
         {
-            return Ok(/*new Coach() { mCoachName = "Иван", mCoachFamily = "Иванов", mCoachDesc = "Описагние тренера" }*/);
+            return Ok(new Employee() { Name = "Иван", Family = "Иванов", Desc = "Описагние тренера" });
         }
 
         // GET api/values/5
