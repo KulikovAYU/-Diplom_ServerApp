@@ -136,16 +136,16 @@ namespace ServerApp.Controllers
         //    new Coach() { mCoachName = "Иван", mCoachFamily = "Иванов", mCoachDesc = "Описагние тренера" };
         //}
 
-        /// <summary>
-        /// Получить информацию о тренере по конкретной тренировке
-        /// </summary>
-        /// <param name="currentTraining">Текущая тренировка</param>
-        /// <returns>Тренер</returns>
-        [HttpPost]
-        public ActionResult<Employee> Post([FromBody]Training currentTraining)
-        {
-            return Ok(new Employee() { Name = "Иван", Family = "Иванов", Desc = "Описагние тренера" });
-        }
+        ///// <summary>
+        ///// Получить информацию о тренере по конкретной тренировке
+        ///// </summary>
+        ///// <param name="currentTraining">Текущая тренировка</param>
+        ///// <returns>Тренер</returns>
+        //[HttpPost]
+        //public ActionResult<Employee> Post([FromBody]Training currentTraining)
+        //{
+        //    return Ok(new Employee() {Id = 1, Name = "Иван", Family = "Иванов", Desc = "Описагние тренера" });
+        //}
 
         // GET api/values/5
         [HttpGet("{id}")]

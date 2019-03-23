@@ -1,3 +1,11 @@
+D:\MyProject\Diplom\ServerApp\ServerApp\ServerApp\bin\Debug\netcoreapp2.1\InitializeData\EmployeePhoto\elizarova-galina.jpg
+D:\MyProject\Diplom\ServerApp\ServerApp\ServerApp\bin\Debug\netcoreapp2.1\InitializeData\EmployeePhoto\erchova anastasya.jpg
+D:\MyProject\Diplom\ServerApp\ServerApp\ServerApp\bin\Debug\netcoreapp2.1\InitializeData\EmployeePhoto\kulikova_elena2.jpg
+D:\MyProject\Diplom\ServerApp\ServerApp\ServerApp\bin\Debug\netcoreapp2.1\InitializeData\EmployeePhoto\Molkova Anastasija.jpg
+D:\MyProject\Diplom\ServerApp\ServerApp\ServerApp\bin\Debug\netcoreapp2.1\InitializeData\EmployeePhoto\Osipova Olga.jpg
+D:\MyProject\Diplom\ServerApp\ServerApp\ServerApp\bin\Debug\netcoreapp2.1\InitializeData\EmployeePhoto\Soloveva Polina.jpg
+D:\MyProject\Diplom\ServerApp\ServerApp\ServerApp\bin\Debug\netcoreapp2.1\InitializeData\EmployeePhoto\vinnik_2.jpg
+D:\MyProject\Diplom\ServerApp\ServerApp\ServerApp\bin\Debug\netcoreapp2.1\InitializeData\HumanPhoto\kulikov.png
 D:\MyProject\Diplom\ServerApp\ServerApp\ServerApp\bin\Debug\netcoreapp2.1\ServerApp.deps.json
 D:\MyProject\Diplom\ServerApp\ServerApp\ServerApp\bin\Debug\netcoreapp2.1\ServerApp.runtimeconfig.json
 D:\MyProject\Diplom\ServerApp\ServerApp\ServerApp\bin\Debug\netcoreapp2.1\ServerApp.runtimeconfig.dev.json
@@ -6,7 +14,9 @@ D:\MyProject\Diplom\ServerApp\ServerApp\ServerApp\bin\Debug\netcoreapp2.1\Server
 D:\MyProject\Diplom\ServerApp\ServerApp\ServerApp\bin\Debug\netcoreapp2.1\FC_EMDB.Database.dll
 D:\MyProject\Diplom\ServerApp\ServerApp\ServerApp\bin\Debug\netcoreapp2.1\FC_EMDB.Entities.dll
 D:\MyProject\Diplom\ServerApp\ServerApp\ServerApp\bin\Debug\netcoreapp2.1\FC_EMDB.Migrations.dll
+D:\MyProject\Diplom\ServerApp\ServerApp\ServerApp\bin\Debug\netcoreapp2.1\JsonConverters.dll
 D:\MyProject\Diplom\ServerApp\ServerApp\ServerApp\bin\Debug\netcoreapp2.1\FC_EMDB.Migrations.pdb
+D:\MyProject\Diplom\ServerApp\ServerApp\ServerApp\bin\Debug\netcoreapp2.1\JsonConverters.pdb
 D:\MyProject\Diplom\ServerApp\ServerApp\ServerApp\bin\Debug\netcoreapp2.1\FC_EMDB.Database.pdb
 D:\MyProject\Diplom\ServerApp\ServerApp\ServerApp\bin\Debug\netcoreapp2.1\FC_EMDB.Entities.pdb
 D:\MyProject\Diplom\ServerApp\ServerApp\ServerApp\obj\Debug\netcoreapp2.1\ServerApp.csprojAssemblyReference.cache
@@ -19,13 +29,3 @@ D:\MyProject\Diplom\ServerApp\ServerApp\ServerApp\obj\Debug\netcoreapp2.1\Server
 D:\MyProject\Diplom\ServerApp\ServerApp\ServerApp\obj\Debug\netcoreapp2.1\ServerApp.csproj.CopyComplete
 D:\MyProject\Diplom\ServerApp\ServerApp\ServerApp\obj\Debug\netcoreapp2.1\ServerApp.dll
 D:\MyProject\Diplom\ServerApp\ServerApp\ServerApp\obj\Debug\netcoreapp2.1\ServerApp.pdb
-D:\MyProject\Diplom\ServerApp\ServerApp\ServerApp\bin\Debug\netcoreapp2.1\InitializeData\EmployeePhoto\elizarova-galina.jpg
-D:\MyProject\Diplom\ServerApp\ServerApp\ServerApp\bin\Debug\netcoreapp2.1\InitializeData\EmployeePhoto\kulikova_elena2.jpg
-D:\MyProject\Diplom\ServerApp\ServerApp\ServerApp\bin\Debug\netcoreapp2.1\InitializeData\EmployeePhoto\vinnik_2.jpg
-D:\MyProject\Diplom\ServerApp\ServerApp\ServerApp\bin\Debug\netcoreapp2.1\InitializeData\EmployeePhoto\Molkova Anastasija.jpg
-D:\MyProject\Diplom\ServerApp\ServerApp\ServerApp\bin\Debug\netcoreapp2.1\InitializeData\EmployeePhoto\Osipova Olga.jpg
-D:\MyProject\Diplom\ServerApp\ServerApp\ServerApp\bin\Debug\netcoreapp2.1\InitializeData\EmployeePhoto\Soloveva Polina.jpg
-D:\MyProject\Diplom\ServerApp\ServerApp\ServerApp\bin\Debug\netcoreapp2.1\InitializeData\EmployeePhoto\erchova anastasya.jpg
-D:\MyProject\Diplom\ServerApp\ServerApp\ServerApp\bin\Debug\netcoreapp2.1\InitializeData\HumanPhoto\kulikov.png
-D:\MyProject\Diplom\ServerApp\ServerApp\ServerApp\bin\Debug\netcoreapp2.1\JsonConverters.dll
-D:\MyProject\Diplom\ServerApp\ServerApp\ServerApp\bin\Debug\netcoreapp2.1\JsonConverters.pdb

@@ -4,7 +4,9 @@ D:\MyProject\Diplom\ServerApp\ServerApp\FC_EMDB.Database\bin\Debug\netcoreapp2.1
 D:\MyProject\Diplom\ServerApp\ServerApp\FC_EMDB.Database\bin\Debug\netcoreapp2.1\FC_EMDB.Database.dll
 D:\MyProject\Diplom\ServerApp\ServerApp\FC_EMDB.Database\bin\Debug\netcoreapp2.1\FC_EMDB.Database.pdb
 D:\MyProject\Diplom\ServerApp\ServerApp\FC_EMDB.Database\bin\Debug\netcoreapp2.1\FC_EMDB.Entities.dll
+D:\MyProject\Diplom\ServerApp\ServerApp\FC_EMDB.Database\bin\Debug\netcoreapp2.1\Microsoft.AspNetCore.Http.Abstractions.dll
 D:\MyProject\Diplom\ServerApp\ServerApp\FC_EMDB.Database\bin\Debug\netcoreapp2.1\FC_EMDB.Entities.pdb
+D:\MyProject\Diplom\ServerApp\ServerApp\FC_EMDB.Database\bin\Debug\netcoreapp2.1\Microsoft.AspNetCore.Http.Abstractions.xml
 D:\MyProject\Diplom\ServerApp\ServerApp\FC_EMDB.Database\obj\Debug\netcoreapp2.1\FC_EMDB.Database.csprojAssemblyReference.cache
 D:\MyProject\Diplom\ServerApp\ServerApp\FC_EMDB.Database\obj\Debug\netcoreapp2.1\FC_EMDB.Database.csproj.CoreCompileInputs.cache
 D:\MyProject\Diplom\ServerApp\ServerApp\FC_EMDB.Database\obj\Debug\netcoreapp2.1\FC_EMDB.Database.AssemblyInfoInputs.cache
@@ -12,5 +14,3 @@ D:\MyProject\Diplom\ServerApp\ServerApp\FC_EMDB.Database\obj\Debug\netcoreapp2.1
 D:\MyProject\Diplom\ServerApp\ServerApp\FC_EMDB.Database\obj\Debug\netcoreapp2.1\FC_EMDB.Database.csproj.CopyComplete
 D:\MyProject\Diplom\ServerApp\ServerApp\FC_EMDB.Database\obj\Debug\netcoreapp2.1\FC_EMDB.Database.dll
 D:\MyProject\Diplom\ServerApp\ServerApp\FC_EMDB.Database\obj\Debug\netcoreapp2.1\FC_EMDB.Database.pdb
-D:\MyProject\Diplom\ServerApp\ServerApp\FC_EMDB.Database\bin\Debug\netcoreapp2.1\Microsoft.AspNetCore.Http.Abstractions.dll
-D:\MyProject\Diplom\ServerApp\ServerApp\FC_EMDB.Database\bin\Debug\netcoreapp2.1\Microsoft.AspNetCore.Http.Abstractions.xml

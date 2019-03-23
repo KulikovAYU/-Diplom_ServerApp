@@ -79,5 +79,18 @@ namespace JsonConverters
 
             return JsonTrainings;
         }
+
+        public static JSONCoach ToJSON(this Employee coach)
+        {
+            JSONCoach jsonCoach = new JSONCoach()
+            {
+                Id = coach.Id,
+                Name = coach.Name,
+                Family = coach.Family,
+                Desc = coach.Desc
+            };
+            return jsonCoach;
+        }
+
     }
 }
