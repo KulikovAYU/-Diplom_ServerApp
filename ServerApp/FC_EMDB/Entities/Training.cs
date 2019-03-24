@@ -15,6 +15,8 @@ namespace FC_EMDB.Entities.Entities
         public ICollection<ReplcedTraining> ReplcedTrainings { get; set; }
        
         public ICollection<VisitedTrainingClient> VisitedTrainingDataTrainings { get; set; }
+
+        // public int TrainingDataId { get; set; }
         public TrainingData TrainingData { get; set; }
 
 
@@ -33,6 +35,18 @@ namespace FC_EMDB.Entities.Entities
         public DateTime EndTime { get; set; }//время окончания тренировки
 
         public bool IsReplaced { get; set; }//заменена ли тренировка
+
+
+        #region Для платной тренировки:
+
+        public int PlacesCount { get; set; }//количество записей (вместимость)
+
+        public int FreePlacesCount => (PlacesCount - BusyPlacesCount);//количество свободных мест
+
+        public int BusyPlacesCount { get; set; }// количество занятых мест
+
+        #endregion
+
 
         private double minutes;
         [NotMapped]

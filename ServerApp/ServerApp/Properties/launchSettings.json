@@ -33,7 +33,7 @@
     "MyMobileProfile": {
       "commandName": "IIS",
       "launchBrowser": true,
-      "launchUrl": "api/trainings",
+      "launchUrl": "api/Default",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

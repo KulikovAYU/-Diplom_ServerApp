@@ -14,7 +14,7 @@ namespace JsonConverters
             ICollection< JSONTraining > JsonTrainings = new List<JSONTraining>();
             foreach (var training in trainings)
             {
-                TrainingData data = uiOfWork.TrainingDatas.Get(training.Id);
+                TrainingData data = uiOfWork.TrainingDatas.Get(training.Id);//Додумать
                 if (data.IsNull())
                     continue;
 
@@ -66,8 +66,8 @@ namespace JsonConverters
                 if (data is PayTraining payTraining)
                 {
                     tr.PlacesCount = payTraining.PlacesCount;
-                    tr.BusyPlacesCount = payTraining.BusyPlacesCount;
-                    tr.FreePlacesCount = payTraining.FreePlacesCount;
+                    //tr.BusyPlacesCount = payTraining.BusyPlacesCount;
+                    //tr.FreePlacesCount = payTraining.FreePlacesCount;
                 }
 
                 //JsonTrainings.
@@ -75,9 +75,71 @@ namespace JsonConverters
             
             }
             //упорядочим по времени
-            JsonTrainings.OrderBy(p => p.StartTime);
+           // JsonTrainings.OrderBy(p => p.StartTime).Reverse();
+            var orderedTrainings = JsonTrainings.OrderBy(p => p.StartTime);
+            return orderedTrainings;
+        }
 
-            return JsonTrainings;
+
+        public static JSONTraining ToJSON(this Training training, IUnitOfWork uiOfWork)
+        {
+            TrainingData data = uiOfWork.TrainingDatas.Get(training.Id);
+            if (data.IsNull())
+                return null;
+
+            ProgramType pt = uiOfWork.ProgramTypes.Get(data.ProgramTypeId);
+            if (pt.IsNull())
+                return null;
+
+            TrainingLevel tl = uiOfWork.TrainingLevels.Get(data.LevelId);
+            if (tl.IsNull())
+                return null;
+
+            Gym gym = uiOfWork.Gyms.Get(training.GymId);
+            if (gym.IsNull())
+                return null;
+
+            CoachTraining ct =
+                uiOfWork.CoachesTrainings.Find(coachTraining => coachTraining.TrainingId == training.Id);
+            if (ct.IsNull())
+                return null;
+
+            Employee empl = uiOfWork.Employees.Get(ct.CoachId);
+            if (empl.IsNull())
+                return null;
+
+            JSONTraining tr = new JSONTraining
+            {
+                Id = training.Id,
+                StartTime = training.StartTime,
+                EndTime = training.EndTime,
+                IsFinished = training.IsFinished,
+                GymName = gym.Name,
+
+                Description = data.TrainingDescription,
+                IsMustPay = data.IsMustPay,
+                TrainingName = data.TrainingName,
+                IsNewTraining = data.IsNewTraining,
+                Ispopular = data.Ispopular,
+
+                ProgramType = pt.Name,
+
+                CoachId = empl.Id,
+                CoachName = empl.Name,
+                CoachFamily = empl.Family,
+                LevelName = tl.Name,
+
+            };
+
+            //Если это платная тренировка
+            if (data is PayTraining payTraining)
+            {
+                tr.PlacesCount = payTraining.PlacesCount;
+                //tr.BusyPlacesCount = payTraining.BusyPlacesCount;
+                //tr.FreePlacesCount = payTraining.FreePlacesCount;
+            }
+
+            return tr;
         }
 
         public static JSONCoach ToJSON(this Employee coach)

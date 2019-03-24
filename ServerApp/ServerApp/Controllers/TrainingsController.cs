@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using FC_EMDB;
-using FC_EMDB.Entities.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using FC_EMDB.Database.UnitOfWork;
+using FC_EMDB.Entities.Entities;
+using JsonConverters;
+using JsonConverters.JSONEntities;
 
 namespace ServerApp.Controllers
 {
@@ -12,14 +14,16 @@ namespace ServerApp.Controllers
     [ApiController]
     public class TrainingsController : ControllerBase
     {
-        // GET api/values
-        [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        private readonly IUnitOfWork _unitOfWork;
+    
+        public TrainingsController(IUnitOfWork uow)
         {
-            return new string[] { "value1", "value2" };
+            _unitOfWork = uow;
+
+            //_context = context;
         }
 
-
+      
 
         /// <summary>
         /// Получить список тренировок на выбранный день
@@ -28,156 +32,153 @@ namespace ServerApp.Controllers
         /// <returns>Список тренировок</returns>
         [HttpGet]
         [Route("gettrainingsList/{date}")]
-        public ActionResult<IEnumerable<Training>> Get(DateTime date)
+        public async Task <ActionResult<IEnumerable<JSONTraining>>> Get(DateTime date)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
-            var list = new List<Training>();
-
-            //Training item1 = new TrainingBuilder().Name("Hatha Yoga").
-            //     StartTime(new DateTime(2019, 2, 8, 7, 30, 0)).
-            //     EndTime(new DateTime(2019, 2, 8, 8, 30, 0)).
-            //     GymName("Большой зал").
-            //     ProgramType("Mind&Body (Мягкий фитнес)").
-            //     LevelName("Низкая интенсивность").
-            //     CoachName("Галина").
-            //     CoachFamily("Елизарова").
-            //     Description("Занятие, на котором помимо асан и пранаямы делается акцент на " +
-            //             "концентрацию внимания и медитацию. Урок рекомендован для всех уровней подготовки").
-            //     Build();
-
-            //list.Add(item1);
-
-
-            ////addItem(item1);
-
-
-            //Training item2 = new TrainingBuilder().Name("TRX").
-            //        StartTime(new DateTime(2019, 2, 8, 8, 30, 0)).
-            //        EndTime(new DateTime(2019, 2, 8, 9, 30, 0)).
-            //        GymName("Тренажерный зал").
-            //        ProgramType("Специальные программы").
-            //        LevelName("Для всех уровней подготовки").
-            //        CoachName("Анастасия").
-            //        CoachFamily("Молькова").
-            //        Description("TRX - тренировка мышц всего тела с помощью уникального оборудования - " +
-            //                "TRX-петель. Это тренировка, которая позволяет не только развивать все мышечные группы, " +
-            //                "укреплять связки и сухожилия, но и развивать гибкость, ловкость, выносливость и многое " +
-            //                "другое. Данная тренировка имеет еще одно важное достоинство - эффективное развитие мышц так " +
-            //                "называемого кора(мышц-стабилизаторов). Упражнения подходят для всех возрастных групп, " +
-            //                "для мужчин и женщин, для лиц с отклонениями в состоянии здоровья, так как в этой тренировке " +
-            //                "нет никакой осевой (вертикальной) нагрузки на позвоночник").
-            //        Capacity(10).IsMustPay().Capacity(10).BusyPlacesCount(5).
-            //        Build();
-            //list.Add(item2);
-
-            //Training item3 = new TrainingBuilder().Name("New Body").
-            //        StartTime(new DateTime(2019, 2, 8, 10, 00, 0)).
-            //        EndTime(new DateTime(2019, 2, 8, 10, 30, 0)).
-            //        GymName("Большой зал").
-            //        ProgramType("Силовой и функциональный тренинг").
-            //        LevelName("Для всех уровней подготовки").
-            //        CoachName("Елена").
-            //        CoachFamily("Куликова").
-            //        IsNewTraining().
-            //        Description("NEW BODY (55 мин) («Новое тело») - силовой урок, направленный на тренировку всех " +
-            //                "групп мышц. Специально подобранные комплексы упражнений помогут скорректировать проблемные зоны, " +
-            //                "независимо от того, каким телосложением вы обладаете. Урок рекомендован как для среднего так и для " +
-            //                "продвинутого уровня подготовки").
-            //        Build();
-            //list.Add(item3);
-
-            //Training item4 = new TrainingBuilder().Name("ABS+Stretch").
-            //        StartTime(new DateTime(2019, 2, 8, 16, 00, 00)).
-            //        EndTime(new DateTime(2019, 2, 8, 16, 30, 00)).
-            //        GymName("Большой зал").
-            //        ProgramType("Mind&Body (Мягкий фитнес)").
-            //        LevelName("Для всех уровней подготовки").
-            //        CoachName("Елена").
-            //        CoachFamily("Куликова").
-            //        Replaced().
-            //        Description("Урок, направленный на развитие гибкости, с использованием специальных упражнений на растягивание. " +
-            //                "Увеличивает подвижность суставов, эластичность связок, дает общее расслабление и релаксацию.").
-            //        Build();
-            //list.Add(item4);
-
-            //Training item5 = new TrainingBuilder().Name("Pilates").
-            //        StartTime(new DateTime(2019, 2, 8, 17, 30, 00)).
-            //        EndTime(new DateTime(2019, 2, 8, 18, 30, 00)).
-            //        GymName("Большой зал").
-            //        LevelName("Для всех уровней подготовки").
-            //        CoachName("Полина").
-            //        CoachFamily("Соловьева").
-            //        ProgramType("Mind&Body (Мягкий фитнес)").
-            //        Description("Урок направлен на укрепление мышц-стабилизаторов, упражнгения пилатес " +
-            //                "способствуют снятию напряжению с позвоночника, восстановлению эластичности " +
-            //                "связочного аппарата и мышц. Урок рекомендован для всех уровней подготовки").
-            //        IsPopular().
-            //        Build();
-            //list.Add(item5);
+            var list = await _unitOfWork.Trainings.FindAllAsync(time =>
+                time.StartTime.Day == date.Day && time.StartTime.Year == date.Year &&
+                time.StartTime.Month == date.Month);
 
             if (list == null)
                 return NotFound();
 
-            return Ok(list);
+            var trainingList = list.ToJSON(_unitOfWork);
+
+            return Ok(trainingList);
         }
 
-        //[HttpGet("{id}")]
-        ////[Route("Trainings1/{id}")]
-        //public ActionResult<Coach> Get(int id, string mnTrtainingId)
-        //{
-        //    return new Coach() { mCoachName = "Иван", mCoachFamily = "Иванов", mCoachDesc = "Описагние тренера" };
-        //}
+        [HttpGet]
+        [Route("gettraining")]
+        public async Task<IActionResult> Get([FromQuery(Name = "trainingId")] string Id, [FromQuery(Name = "trainingDate")] DateTime date)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
+            //получим ID тренировки в расписании
+            var training =
+                await _unitOfWork.Trainings.FindAsync(tr => tr.Id == int.Parse(Id) && tr.StartTime == date);
 
+            if (training == null)
+                return NotFound();
 
-        //[HttpPost]
-        //public void Post([FromBody]MyClass currentTraining)
-        //{
-        //    new Coach() { mCoachName = "Иван", mCoachFamily = "Иванов", mCoachDesc = "Описагние тренера" };
-        //}
+            var trainingJSON = training.ToJSON(_unitOfWork);
 
-        ///// <summary>
-        ///// Получить информацию о тренере по конкретной тренировке
-        ///// </summary>
-        ///// <param name="currentTraining">Текущая тренировка</param>
-        ///// <returns>Тренер</returns>
-        //[HttpPost]
-        //public ActionResult<Employee> Post([FromBody]Training currentTraining)
-        //{
-        //    return Ok(new Employee() {Id = 1, Name = "Иван", Family = "Иванов", Desc = "Описагние тренера" });
-        //}
+            if (trainingJSON == null)
+                return NotFound();
 
-        // GET api/values/5
+            return Ok(trainingJSON);
+        }
+
+        // GET: api/TrainingsController_1
+        [HttpGet]
+        public IEnumerable<Training> GetTrainings()
+        {
+            return _unitOfWork.Trainings.GetAll();
+        }
+
+        // GET: api/TrainingsController_1/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public async Task<IActionResult> GetTraining([FromRoute] int id)
         {
-            return "value";
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var training = await _unitOfWork.Trainings.GetAsync(id);
+
+            if (training == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(training);
         }
 
-        // POST api/values
-        //[HttpPost]
-        //public ActionResult<Coach> Post([FromBody] string value)
-        //{
-        //    int n = 0;
-        //    return null;
-        //}
-
-        // PUT api/values/5
+        // PUT: api/TrainingsController_1/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task<IActionResult> PutTraining([FromRoute] int id, [FromBody] Training training)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (id != training.Id)
+            {
+                return BadRequest();
+            }
+
+            //_context.Entry(training).State = EntityState.Modified;
+
+            try
+            {
+                await _unitOfWork.Trainings.UpdateAsync(training);
+               // await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!TrainingExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
         }
 
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        // POST: api/TrainingsController_1
+        [HttpPost]
+        public async Task<IActionResult> PostTraining([FromBody] Training training)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+           // _context.Trainings.Add(training);
+           // await _context.SaveChangesAsync();
+
+            await _unitOfWork.Trainings.AddAsync(training);
+
+            return CreatedAtAction("GetTraining", new { id = training.Id }, training);
+        }
+
+        // DELETE: api/TrainingsController_1/5
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteTraining([FromRoute] int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+           // var training = await _context.Trainings.FindAsync(id);
+            var training = await _unitOfWork.Trainings.GetAsync(id);
+            if (training == null)
+            {
+                return NotFound();
+            }
+
+            // _context.Trainings.Remove(training);
+            await _unitOfWork.Trainings.RemoveAsync(training);
+
+            return Ok(training);
+        }
+
+        private bool TrainingExists(int id)
+        {
+            return _unitOfWork.Trainings.Find(e => e.Id == id) != null;
         }
     }
-
-
-    //public class MyClass
-    //{
-    //    public string mName { get; set; }
-    //}
 }

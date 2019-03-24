@@ -313,84 +313,84 @@ namespace FC_EMDB.Database.Initializer
                     #region Тренировки на второй день
                     new Training()
                     {
-                        StartTime = new DateTime(2019, 4, 9, 9, 0, 0),
+                        StartTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day + 1 , 9, 0, 0),
                         Minutes = 55,
                         Gym = context.Gyms.Get(2),
                         TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "TRX")
                     },
                     new Training()
                     {
-                        StartTime = new DateTime(2019, 4, 9, 9, 0, 0),
+                        StartTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day + 1 , 9, 0, 0),
                         Minutes = 55,
                         Gym = context.Gyms.Get(1),
                         TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "Здоровая спина")
                     },
                     new Training()
                     {
-                        StartTime = new DateTime(2019, 4, 9, 10, 0, 0),
+                        StartTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day + 1 , 10, 0, 0),
                         Minutes = 55,
                         Gym = context.Gyms.Get(1),
                         TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "#Superпресс")
                     },
                     new Training()
                     {
-                        StartTime = new DateTime(2019, 4, 9, 11, 0, 0),
+                        StartTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day + 1 , 11, 0, 0),
                         Minutes = 55,
                         Gym = context.Gyms.Get(1),
                         TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "#запускягодицы")
                     },
                     new Training()
                     {
-                        StartTime = new DateTime(2019, 4, 9, 11, 0, 0),
+                        StartTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day + 1 , 11, 0, 0),
                         Minutes = 55,
                         Gym = context.Gyms.Get(2),
                         TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "TRX")
                     },
                     new Training()
                     {
-                        StartTime = new DateTime(2019, 4, 9, 14, 0, 0),
+                        StartTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day + 1 , 14, 0, 0),
                         Minutes = 55,
                         Gym = context.Gyms.Get(1),
                         TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "Tabata")
                     },
                     new Training()
                     {
-                        StartTime = new DateTime(2019, 4, 9, 15, 0, 0),
+                        StartTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day + 1 , 15, 0, 0),
                         Minutes = 55,
                         Gym = context.Gyms.Get(1),
                         TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "Callanetics")
                     },
                     new Training()
                     {
-                        StartTime = new DateTime(2019, 4, 9, 17, 30, 0),
+                        StartTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day + 1 , 17, 30, 0),
                         Minutes = 55,
                         Gym = context.Gyms.Get(1),
                         TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "ABS and Stretch")
                     },
                     new Training()
                     {
-                        StartTime = new DateTime(2019, 4, 9, 17, 30, 0),
+                        StartTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day + 1 , 17, 30, 0),
                         Minutes = 55,
                         Gym = context.Gyms.Get(2),
                         TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "Шпагат")
                     },
                     new Training()
                     {
-                        StartTime = new DateTime(2019, 4, 9, 18, 30, 0),
+                        StartTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day + 1 , 18, 30, 0),
                         Minutes = 55,
                         Gym = context.Gyms.Get(1),
                         TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "#запускягодицы")
                     },
                     new Training()
                     {
-                        StartTime = new DateTime(2019, 4, 9, 18, 30, 0),
+                        StartTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day + 1 , 18, 30, 0),
                         Minutes = 55,
                         Gym = context.Gyms.Get(2),
                         TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "TRX")
                     },
                     new Training()
                     {
-                        StartTime = new DateTime(2019, 4, 9, 19, 30, 0),
+                        StartTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day + 1 , 19, 30, 0),
                         Minutes = 55,
                         Gym = context.Gyms.Get(2),
                         TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "Hatha Yoga")

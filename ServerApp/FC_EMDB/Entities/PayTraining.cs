@@ -12,8 +12,8 @@
 
         public int PlacesCount { get; set; }//количество записей (вместимость)
 
-        public int FreePlacesCount { get; set; }//количество свободных мест
+        //public int FreePlacesCount => (PlacesCount - BusyPlacesCount);//количество свободных мест
 
-        public int BusyPlacesCount { get; set; }// количество занятых мест
+        //public int BusyPlacesCount { get; set; }// количество занятых мест
     }
 }
