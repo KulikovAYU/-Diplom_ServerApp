@@ -23,7 +23,7 @@ namespace ServerApp.Controllers
         /// </summary>
         /// <param name="userId">id пользователя</param>
         /// <param name="trainingId">id тренировки</param>
-        /// <returns>истина-ложь: записан-не записан</returns>
+        /// <returns>истина-ложь: записан/не записан</returns>
         [HttpGet]
         [Route("checkWriting")]
         public async Task<IActionResult> Get([FromQuery(Name = "userId")] string userId, [FromQuery(Name = "trainingId")] string trainingId)
