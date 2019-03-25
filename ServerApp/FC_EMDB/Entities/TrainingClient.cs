@@ -11,10 +11,10 @@ namespace FC_EMDB.Entities.Entities
         //public DateTime ComeOutTime { get; set; }//время выхода
         //public bool IsComeIn { get; set; } //пришел
 
-        public int TrainingId { get; set; }
+        public int? TrainingId { get; set; }
         public Training Training { get; set; }
 
-        public int ClientId { get; set; }
+        public int? ClientId { get; set; }
         public Client Client { get; set; }
     }
 }

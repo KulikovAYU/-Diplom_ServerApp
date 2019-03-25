@@ -6,3 +6,4 @@ D:\MyProject\Diplom\ServerApp\ServerApp\FC_EMDB\obj\Debug\netcoreapp2.1\FC_EMDB.
 D:\MyProject\Diplom\ServerApp\ServerApp\FC_EMDB\obj\Debug\netcoreapp2.1\FC_EMDB.Entities.AssemblyInfo.cs
 D:\MyProject\Diplom\ServerApp\ServerApp\FC_EMDB\obj\Debug\netcoreapp2.1\FC_EMDB.Entities.dll
 D:\MyProject\Diplom\ServerApp\ServerApp\FC_EMDB\obj\Debug\netcoreapp2.1\FC_EMDB.Entities.pdb
+D:\MyProject\Diplom\ServerApp\ServerApp\FC_EMDB\obj\Debug\netcoreapp2.1\FC_EMDB.Entities.csprojAssemblyReference.cache
