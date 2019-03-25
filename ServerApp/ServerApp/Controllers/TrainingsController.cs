@@ -46,7 +46,7 @@ namespace ServerApp.Controllers
             if (list == null)
                 return NotFound();
 
-            var trainingList = list.ToJSON(_unitOfWork);
+            var trainingList = await list.ToJSONAsync(_unitOfWork);
 
             return Ok(trainingList);
         }
@@ -67,7 +67,7 @@ namespace ServerApp.Controllers
             if (training == null)
                 return NotFound();
 
-            var trainingJSON = training.ToJSON(_unitOfWork);
+            var trainingJSON = await training.ToJSONAsync(_unitOfWork);
 
             if (trainingJSON == null)
                 return NotFound();

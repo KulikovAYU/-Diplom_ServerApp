@@ -16,7 +16,7 @@ namespace FC_EMDB.Entities.Entities
        
         public ICollection<VisitedTrainingClient> VisitedTrainingDataTrainings { get; set; }
 
-        // public int TrainingDataId { get; set; }
+        public int? TrainingDataId { get; set; }
         public TrainingData TrainingData { get; set; }
 
 

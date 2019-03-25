@@ -1,7 +1,6 @@
 D:\MyProject\Diplom\ServerApp\ServerApp\FC_EMDB\bin\Debug\netcoreapp2.1\FC_EMDB.Entities.deps.json
 D:\MyProject\Diplom\ServerApp\ServerApp\FC_EMDB\bin\Debug\netcoreapp2.1\FC_EMDB.Entities.dll
 D:\MyProject\Diplom\ServerApp\ServerApp\FC_EMDB\bin\Debug\netcoreapp2.1\FC_EMDB.Entities.pdb
-D:\MyProject\Diplom\ServerApp\ServerApp\FC_EMDB\obj\Debug\netcoreapp2.1\FC_EMDB.Entities.csprojAssemblyReference.cache
 D:\MyProject\Diplom\ServerApp\ServerApp\FC_EMDB\obj\Debug\netcoreapp2.1\FC_EMDB.Entities.csproj.CoreCompileInputs.cache
 D:\MyProject\Diplom\ServerApp\ServerApp\FC_EMDB\obj\Debug\netcoreapp2.1\FC_EMDB.Entities.AssemblyInfoInputs.cache
 D:\MyProject\Diplom\ServerApp\ServerApp\FC_EMDB\obj\Debug\netcoreapp2.1\FC_EMDB.Entities.AssemblyInfo.cs
