@@ -19,11 +19,7 @@ namespace ServerApp.Controllers
         public TrainingsController(IUnitOfWork uow)
         {
             _unitOfWork = uow;
-
-            //_context = context;
         }
-
-      
 
         /// <summary>
         /// Получить список тренировок на выбранный день
@@ -51,6 +47,12 @@ namespace ServerApp.Controllers
             return Ok(trainingList);
         }
 
+        /// <summary>
+        /// Получить информацию о тренировке
+        /// </summary>
+        /// <param name="Id">id тренировки</param>
+        /// <param name="date">дата начала тренировки</param>
+        /// <returns>информацию о тренировке</returns>
         [HttpGet]
         [Route("gettraining")]
         public async Task<IActionResult> Get([FromQuery(Name = "trainingId")] string Id, [FromQuery(Name = "trainingDate")] DateTime date)
@@ -124,7 +126,7 @@ namespace ServerApp.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!TrainingExists(id))
+                if (!(await TrainingExists(id)))
                 {
                     return NotFound();
                 }
@@ -176,9 +178,9 @@ namespace ServerApp.Controllers
             return Ok(training);
         }
 
-        private bool TrainingExists(int id)
+        private async Task<bool> TrainingExists(int id)
         {
-            return _unitOfWork.Trainings.Find(e => e.Id == id) != null;
+            return await _unitOfWork.Trainings.FindAsync(e => e.Id == id) != null;
         }
     }
 }
