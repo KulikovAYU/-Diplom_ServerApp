@@ -1,9 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using FC_EMDB.Database.UnitOfWork;
 using FC_EMDB.Entities.Entities;
+using JsonConverters;
+using Microsoft.AspNetCore.Routing;
 
 namespace ServerApp.Controllers
 {
@@ -40,6 +44,79 @@ namespace ServerApp.Controllers
                 return Ok(false);
             }
             return Ok(true);
+        }
+
+        /// <summary>
+        /// Создать предварительную регистрацию на тренировку
+        /// </summary>
+        /// <param name="userId">Id пользователя</param>
+        /// <param name="trainingId">Id тренировки</param>
+        /// <param name="date">Дата начала тренировки</param>
+        /// <returns>измененная тренировка</returns>
+        [HttpGet]
+        [Route("createregistrationtraining")]
+        public async Task<IActionResult> Get([FromQuery(Name = "userId")] string userId,
+            [FromQuery(Name = "trainingId")] string trainingId, [FromQuery(Name = "date")] DateTime date)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            //впринципе проверку можно и не делать , но сделаем
+            var result = await _unitOfWork.TrainingClients.FindAsync(tc =>
+                tc.ClientId == int.Parse(userId) && tc.TrainingId == int.Parse(trainingId));
+
+           
+
+            //если нет трени в записи
+            if (result == null)
+            {
+                Training trID = await _unitOfWork.Trainings.FindAsync(tr =>
+                    tr.Id == int.Parse(trainingId) && tr.StartTime == date);
+
+                if (trID == null)
+                {
+                    StatusCode((int) HttpStatusCode.Conflict);
+                }
+
+
+              var record = await _unitOfWork.TrainingClients.AddAsync(new TrainingClient()
+                    {ClientId = int.Parse(userId), TrainingId = trID?.Id});
+
+                //теперь возьмем тренировку и сократим кол-во свободных и увеличим кол-во занятых мест
+
+                if (record.TrainingId == null)
+                    return NotFound();
+
+                var training = await _unitOfWork.Trainings.GetAsync((int) record.TrainingId);
+
+                training.BusyPlacesCount += 1;//увеличим кол-во мест
+
+                var newTraining = await _unitOfWork.Trainings.UpdateAsync(training);
+
+                if (newTraining == null)
+                {
+                    return NotFound();
+                }
+
+
+
+                return Ok(await newTraining.ToJSONAsync(_unitOfWork));
+            }
+            //м.б.потом реализовать здесь же отмену записи
+
+            return StatusCode((int) HttpStatusCode.Conflict);
+
+          
+
+            //иначе найдем тренировку в расписании
+
+
+            
+         
+                    //
+            return Ok();
         }
 
         // GET: api/TrainingClients
@@ -143,5 +220,7 @@ namespace ServerApp.Controllers
         {
             return await _unitOfWork.TrainingClients.FindAsync(e => e.TrainingId == id) != null;
         }
+
+      
     }
 }

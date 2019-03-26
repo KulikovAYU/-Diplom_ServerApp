@@ -54,8 +54,8 @@ namespace ServerApp.Controllers
         /// <param name="date">дата начала тренировки</param>
         /// <returns>информацию о тренировке</returns>
         [HttpGet]
-        [Route("gettraining")]
-        public async Task<IActionResult> Get([FromQuery(Name = "trainingId")] string Id, [FromQuery(Name = "trainingDate")] DateTime date)
+        [Route("gettraining",Name = "getTrainingInfo")]
+        public async Task<IActionResult> Get([FromQuery(Name = "trainingId")][FromRoute] string Id, [FromQuery(Name = "trainingDate")][FromRoute] DateTime date)
         {
             if (!ModelState.IsValid)
             {

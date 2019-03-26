@@ -250,7 +250,9 @@ namespace FC_EMDB.Database.Initializer
                         StartTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 9, 0, 0),
                         Minutes = 55,
                         Gym = context.Gyms.Get(2),
-                        TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "TRX")
+                        TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "TRX"),
+                        PlacesCount = ((PayTraining) context.TrainingDatas.Find(tr=>tr.TrainingName == "TRX")).PlacesCount,
+                        BusyPlacesCount = 0
                     },
                     new Training()
                     {
@@ -299,7 +301,9 @@ namespace FC_EMDB.Database.Initializer
                         StartTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 18, 30, 0),
                         Minutes = 55,
                         Gym = context.Gyms.Get(2),
-                        TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "TRX")
+                        TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "TRX"),
+                        PlacesCount = ((PayTraining) context.TrainingDatas.Find(tr=>tr.TrainingName == "TRX")).PlacesCount,
+                        BusyPlacesCount = 1
                     },
                     new Training()
                     {
@@ -316,7 +320,9 @@ namespace FC_EMDB.Database.Initializer
                         StartTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day + 1 , 9, 0, 0),
                         Minutes = 55,
                         Gym = context.Gyms.Get(2),
-                        TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "TRX")
+                        TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "TRX"),
+                        PlacesCount = ((PayTraining) context.TrainingDatas.Find(tr=>tr.TrainingName == "TRX")).PlacesCount,
+                        BusyPlacesCount = 2
                     },
                     new Training()
                     {
@@ -344,7 +350,9 @@ namespace FC_EMDB.Database.Initializer
                         StartTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day + 1 , 11, 0, 0),
                         Minutes = 55,
                         Gym = context.Gyms.Get(2),
-                        TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "TRX")
+                        TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "TRX"),
+                        PlacesCount = ((PayTraining) context.TrainingDatas.Find(tr=>tr.TrainingName == "TRX")).PlacesCount,
+                        BusyPlacesCount = 3
                     },
                     new Training()
                     {
@@ -372,7 +380,9 @@ namespace FC_EMDB.Database.Initializer
                         StartTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day + 1 , 17, 30, 0),
                         Minutes = 55,
                         Gym = context.Gyms.Get(2),
-                        TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "Шпагат")
+                        TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "Шпагат"),
+                        PlacesCount = ((PayTraining) context.TrainingDatas.Find(tr=>tr.TrainingName == "TRX")).PlacesCount,
+                        BusyPlacesCount = 3
                     },
                     new Training()
                     {
@@ -386,7 +396,9 @@ namespace FC_EMDB.Database.Initializer
                         StartTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day + 1 , 18, 30, 0),
                         Minutes = 55,
                         Gym = context.Gyms.Get(2),
-                        TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "TRX")
+                        TrainingData = context.TrainingDatas.Find(tr=>tr.TrainingName == "TRX"),
+                        PlacesCount = ((PayTraining) context.TrainingDatas.Find(tr=>tr.TrainingName == "TRX")).PlacesCount,
+                        BusyPlacesCount = 4
                     },
                     new Training()
                     {
