@@ -146,7 +146,7 @@ namespace JsonConverters
                 if (data is PayTraining payTraining)
                 {
                     tr.PlacesCount = payTraining.PlacesCount;
-                    //tr.BusyPlacesCount = payTraining.BusyPlacesCount;
+                    tr.BusyPlacesCount = training.BusyPlacesCount;
                     //tr.FreePlacesCount = payTraining.FreePlacesCount;
                 }
                 return tr;
