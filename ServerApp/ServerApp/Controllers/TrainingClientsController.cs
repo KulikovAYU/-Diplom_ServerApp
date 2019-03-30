@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using FC_EMDB.Database.UnitOfWork;
 using FC_EMDB.Entities.Entities;
 using JsonConverters;
+using JsonConverters.JSONEntities;
 
 namespace ServerApp.Controllers
 {
@@ -131,21 +132,38 @@ namespace ServerApp.Controllers
 
         // GET: api/TrainingClients/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetTrainingClient([FromRoute] int id)
+        public async Task<ActionResult<IEnumerable<JSONTraining>>> GetTrainingClient([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var trainingClient = await _unitOfWork.TrainingClients.GetAsync(id);
+            var trainingClients = await _unitOfWork.TrainingClients.FindAllAsync(tc=>tc.ClientId == id);
 
-            if (trainingClient == null)
-            {
+            if (trainingClients == null)
                 return NotFound();
+
+            List<Training> trainingsList = new List<Training>();
+
+            foreach (var trainingClient in trainingClients)
+            {
+                if (trainingClient.TrainingId != null)
+                {
+                    var currTraining = await _unitOfWork.Trainings.GetAsync((int)trainingClient.TrainingId);
+                    if (currTraining != null)
+                    {
+                        trainingsList.Add(currTraining);
+                    }
+                }
             }
 
-            return Ok(trainingClient);
+            var trainingJSON = await trainingsList.ToJSONAsync(_unitOfWork);
+
+            if (trainingJSON == null)
+                return NotFound();
+
+            return Ok(trainingJSON);
         }
 
         // PUT: api/TrainingClients/5
