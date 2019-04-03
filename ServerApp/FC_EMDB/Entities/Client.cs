@@ -31,6 +31,9 @@ namespace FC_EMDB.Entities.Entities
         public string PasswordHash { get; set; }//пароль
 
         public DateTime AbonementDateOfRegistration { get; set; } //дата регистрации
+
+        public DateTime AbonementDateOfActivate { get; set; } //дата активации
+
         public DateTime AbonementActionTime { get; set; } //кол-во месяцев
 
         /// <summary>

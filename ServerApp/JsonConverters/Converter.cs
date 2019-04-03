@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FC_EMDB.Database.UnitOfWork;
@@ -21,71 +22,9 @@ namespace JsonConverters
                 {
                     JsonTrainings.Add(tr);
                 }
-                //if (training.TrainingDataId != null)
-                //{
-                //    TrainingData data = await uiOfWork.TrainingDatas.GetAsync((int) training.TrainingDataId);//Додумать
-                //    if (data.IsNull())
-                //        continue;
-
-                //    ProgramType pt = await uiOfWork.ProgramTypes.GetAsync(data.ProgramTypeId);
-                //    if (pt.IsNull())
-                //        continue;
-
-                //    TrainingLevel tl = await uiOfWork.TrainingLevels.GetAsync(data.LevelId);
-                //    if (tl.IsNull())
-                //        continue;
-
-                //    Gym gym = await uiOfWork.Gyms.GetAsync(training.GymId);
-                //    if (gym.IsNull())
-                //        continue;
-
-                //    CoachTraining ct =
-                //        await uiOfWork.CoachesTrainings.FindAsync(coachTraining => coachTraining.TrainingId == training.Id);
-                //    if (ct.IsNull())
-                //        continue;
-
-                //    Employee empl = await uiOfWork.Employees.GetAsync(ct.CoachId);
-                //    if (empl.IsNull())
-                //        continue;
-
-                //    JSONTraining tr = new JSONTraining
-                //    {
-                //        Id = training.Id,
-                //        StartTime = training.StartTime,
-                //        EndTime = training.EndTime,
-                //        IsFinished = training.IsFinished,
-                //        GymName = gym.Name,
-
-                //        Description = data.TrainingDescription,
-                //        IsMustPay = data.IsMustPay,
-                //        TrainingName = data.TrainingName,
-                //        IsNewTraining = data.IsNewTraining,
-                //        Ispopular = data.Ispopular,
-
-                //        ProgramType = pt.Name,
-
-                //        CoachId   = empl.Id,
-                //        CoachName = empl.Name,
-                //        CoachFamily = empl.Family,
-                //        LevelName = tl.Name,
-
-                //    };
-
-                //    //Если это платная тренировка
-                //    if (data is PayTraining payTraining)
-                //    {
-                //        tr.PlacesCount = payTraining.PlacesCount;
-                //        //tr.BusyPlacesCount = payTraining.BusyPlacesCount;
-                //        //tr.FreePlacesCount = payTraining.FreePlacesCount;
-                //    }
-
-                //JsonTrainings.
-              
-                //}
             }
             //упорядочим по времени
-           // JsonTrainings.OrderBy(p => p.StartTime).Reverse();
-            var orderedTrainings = JsonTrainings.OrderBy(p => p.StartTime);
+             var orderedTrainings = JsonTrainings.OrderBy(p => p.StartTime);
             return orderedTrainings;
         }
 
@@ -165,6 +104,31 @@ namespace JsonConverters
                 Desc = coach.Desc
             };
             return jsonCoach;
+        }
+
+        public static async Task<JSONClient> ToJSONAsync(this Client client, IUnitOfWork uiOfWork)
+        {
+
+            var status = (await uiOfWork.AbonementStatuses.GetAsync(client.AbonementStatusId)).Name;
+
+
+            JSONClient jsonClient = new JSONClient()
+            {
+                Id = client.Id,
+                Name = client.Name,
+                Family = client.Family,
+                LastName = client.LastName,
+                DateOfBirdth = client.DateOfBirdth,
+                AbonementNumber = client.AbonementNumber,
+                AbonementActionTime = client.AbonementActionTime,
+                AbonementType = (await uiOfWork.AbonementTypes.GetAsync(client.AbonementTypeId)).Name,
+                AbonementStatus = (await uiOfWork.AbonementStatuses.GetAsync(client.AbonementStatusId)).Name,
+                IsAсtive = String.Equals(status, "Активен"),
+                IsFreeze = String.Equals(status, "Заморожен"),
+                AbonementEndTime = client.AbonementDateOfActivate.AddDays(client.AbonementActionTime.Day).AddHours(client.AbonementActionTime.Hour).AddMonths(client.AbonementActionTime.Month)
+
+            };
+            return jsonClient;
         }
 
     }

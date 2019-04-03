@@ -430,14 +430,15 @@ namespace FC_EMDB.Database.Initializer
                                  DateOfBirdth = DateTime.Parse("24.03.2000"),
                                  Photo = SqlTools.ConvertImageToByteArray(SqlTools.GetPath(),"kulikov.png","\\InitializeData\\HumanPhoto\\"),
                                  AbonementStatus = context.AbonementStatuses.Get(1),
-                                 AbonementType =  context.AbonementTypes.Get(1),
+                                 AbonementType =  context.AbonementTypes.Get(3),
                                  AbonementDateOfRegistration = DateTime.Now,
                                  AbonementNumber = AbonementGenerator.CreateNumberSubscription(context),
                                  PasportData = $"2409 N460870 ОУФМС РОССИИ {DateTime.Parse("04.05.2012")}",
                                  PasswordHash = "2705",
                                  AbonementStatusId =  context.AbonementStatuses.Get(1).Id,
                                  AbonementActionTime =  DateTime.Parse("30.05.2019"),
-                                 AbonementTypeId = context.AbonementTypes.Get(2).Id,
+                                 AbonementDateOfActivate =  DateTime.Now
+
                     }
                 });
             }
