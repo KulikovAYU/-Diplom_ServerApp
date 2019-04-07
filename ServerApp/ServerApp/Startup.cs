@@ -2,6 +2,7 @@
 using FC_EMDB.Database.DbContext;
 using FC_EMDB.Database.UnitOfWork;
 using FC_EMDB.Database.UnitOfWork.Interfaces;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Routing;
@@ -42,6 +43,11 @@ namespace ServerApp
             services.AddTransient<IVisitedTrainingClientRepository, VisitedTrainingClientRepository>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
 
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
+            {
+                options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/client/Login");
+                options.AccessDeniedPath = new Microsoft.AspNetCore.Http.PathString("/Account/client/Login");
+            });
             services.AddMvc();
         }
 
@@ -59,6 +65,8 @@ namespace ServerApp
             {
               //  app.UseHsts();
             }
+
+            app.UseAuthentication();
 
             app.UseEFCoreInitializer();
            // app.UseHttpsRedirection();

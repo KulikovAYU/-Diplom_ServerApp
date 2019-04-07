@@ -453,10 +453,11 @@ namespace FC_EMDB.Database.Initializer
             //проинициализируем роли пользователей системы
             if (!context.Roles.GetAll().Any())
             {
-                context.Roles.AddRange(new List<Role>()
+                context.Roles.AddRange(new List<Role>
                 {
                     new Role() {Description = "Инструктор групповых программ"},
-                    new Role() {Description = "Администратор"}
+                    new Role() {Description = "Администратор"},
+                    new Role() {Description = "Клиент"}
                 });
             }
 
