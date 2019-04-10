@@ -9,3 +9,8 @@
 /ServerApp/FC_EMDB/bin
 /ServerApp/ServerApp/bin
 /ServerApp/JsonConverters/bin
+/ServerApp/ServerApp/obj
+/ServerApp/JsonConverters/obj
+/ServerApp/FC_EMDB.Migrations/obj
+/ServerApp/FC_EMDB.Database/obj
+/ServerApp/FC_EMDB/obj
