@@ -37,6 +37,47 @@ namespace ServerApp.Controllers
                 if (client != null)
                 {
                     await AuthenticateClient(client); // аутентификация
+
+                    //найдем все записи, связанные с id клиента
+                    var records = await _unitOfWork.ClientsFcmInfos.FindAllAsync(_cli=>_cli.ClientId.Equals(client.Id));
+
+                    if (records != null) //если есть записи
+                    {
+                        //теперь поищем, нет ли похожего токена в таблице
+                        FcmInfo Fcmrecords = null;
+
+                        foreach (var rec in records)
+                        {
+                            Fcmrecords = await _unitOfWork.FcmInfos.GetAsync(rec.FcmInfoId);
+                            if (Fcmrecords != null)
+                            {
+                                break;
+                            }
+                        }
+                        //если записи в таблице нет, создаем
+                        if (Fcmrecords == null)
+                        {
+                            var info = await _unitOfWork.FcmInfos.AddAsync(new FcmInfo
+                                { FcmToken = model.FcmToken, RegistrationDateTime = DateTime.Now });
+                            //2. связываем отношением многие ко многим
+                            await _unitOfWork.ClientsFcmInfos.AddAsync(new ClientsFcmInfo { ClientId = client.Id, FcmInfoId = info.Id });
+                        }
+                        else
+                        {
+                            Fcmrecords.RegistrationDateTime = DateTime.Now;
+                            //иначе просто обновим
+                            await _unitOfWork.FcmInfos.UpdateAsync(Fcmrecords);
+                        }
+                    }
+                    else //иначе добавим запись
+                    {
+                        //1.создаем запись в FcmInfo
+                        var info = await _unitOfWork.FcmInfos.AddAsync(new FcmInfo
+                            { FcmToken = model.FcmToken, RegistrationDateTime = DateTime.Now });
+                        //2. связываем отношением многие ко многим
+                        await _unitOfWork.ClientsFcmInfos.AddAsync(new ClientsFcmInfo { ClientId = client.Id, FcmInfoId = info.Id });
+                    }
+
                     return Ok(await client.ToJSONAsync(_unitOfWork));
                 }
                 ModelState.AddModelError("", "Некорректные логин и(или) пароль");

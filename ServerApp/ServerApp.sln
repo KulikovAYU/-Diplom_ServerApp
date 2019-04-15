@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FC_EMDB.Database", "FC_EMDB
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FC_EMDB.Migrations", "FC_EMDB.Migrations\FC_EMDB.Migrations.csproj", "{BDBF6C88-4C6C-4F79-A1C8-EDA7AF92FF90}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonConverters", "JsonConverters\JsonConverters.csproj", "{E9531BC1-5205-49AA-A2C8-3EC4F7593574}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsonConverters", "JsonConverters\JsonConverters.csproj", "{E9531BC1-5205-49AA-A2C8-3EC4F7593574}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -10,5 +10,8 @@ namespace FC_EMDB.Entities
         [Required(ErrorMessage = "Не указан пароль")]
         [DataType(DataType.Password)]
         public string PasswordHash { get; set; }
+
+        [Required(ErrorMessage = "Нет токена")]
+        public string FcmToken { get; set; }
     }
 }

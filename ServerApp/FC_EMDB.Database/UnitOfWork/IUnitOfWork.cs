@@ -33,6 +33,9 @@ namespace FC_EMDB.Database.UnitOfWork
 
         IProgramTypeRepository ProgramTypes { get; }
 
+        IFcmInfoRepository FcmInfos { get; }
+
+        IClientsFcmInfoRepository ClientsFcmInfos { get; }
         int Complete();
 
         Task<int> CompleteAsync();

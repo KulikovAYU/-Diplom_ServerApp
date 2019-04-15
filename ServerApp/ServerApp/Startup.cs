@@ -41,6 +41,8 @@ namespace ServerApp
             services.AddTransient<ITrainingLevelRepository, TrainingLevelRepository>();
             services.AddTransient<IProgramTypeRepository, ProgramTypeRepository>();
             services.AddTransient<IVisitedTrainingClientRepository, VisitedTrainingClientRepository>();
+            services.AddTransient<IFcmInfoRepository, FcmInfoRepository>();
+            services.AddTransient<IClientsFcmInfoRepository, ClientsFcmInfoRepository>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>

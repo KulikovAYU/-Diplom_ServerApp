@@ -21,7 +21,8 @@ namespace FC_EMDB.Entities.Entities
         public Client()
         {
             TrainingClients = new HashSet<TrainingClient>();
-            VisitedTrainingClients = new List<VisitedTrainingClient>();
+            VisitedTrainingClients = new HashSet<VisitedTrainingClient>();
+            ClientsFcmInfos = new HashSet<ClientsFcmInfo>();
         }
 
         public string PasportData { get; set; } //паспортные данные
@@ -51,5 +52,7 @@ namespace FC_EMDB.Entities.Entities
         public ICollection<TrainingClient> TrainingClients { get; set; }
 
         public ICollection<VisitedTrainingClient> VisitedTrainingClients { get; set; }
+
+        public ICollection<ClientsFcmInfo> ClientsFcmInfos { get; set; }
     }
 }

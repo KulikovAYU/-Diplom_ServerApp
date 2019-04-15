@@ -30,6 +30,8 @@ namespace FC_EMDB.Database.UnitOfWork
             TrainingLevels = serviceProvider.GetRequiredService<ITrainingLevelRepository>();
             ProgramTypes = serviceProvider.GetRequiredService<IProgramTypeRepository>();
             VisitedTrainingClients = serviceProvider.GetRequiredService<IVisitedTrainingClientRepository>();
+            FcmInfos = serviceProvider.GetRequiredService<IFcmInfoRepository>();
+            ClientsFcmInfos = serviceProvider.GetRequiredService<IClientsFcmInfoRepository>();
             //
         }
 
@@ -87,6 +89,14 @@ namespace FC_EMDB.Database.UnitOfWork
         /// Репозиторий для работы с типом программы
         /// </summary>
         public IProgramTypeRepository ProgramTypes { get;}
+
+        public IFcmInfoRepository FcmInfos { get; }
+
+        /// <summary>
+        ///  Репозиторий для работы с сущностью клиент - девайс
+        /// </summary>
+        public IClientsFcmInfoRepository ClientsFcmInfos { get; }
+
         /// <summary>
         /// Репозиторий для работы с посещенными тренировками
         /// </summary>

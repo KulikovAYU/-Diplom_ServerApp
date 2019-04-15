@@ -28,6 +28,7 @@ namespace FC_EMDB.Database.DbContext
         public DbSet<Training> Trainings { get; set; }
         public DbSet<TrainingLevel> TrainingLevels { get; set; }
         public DbSet<VisitedTrainingClient> VisitedTrainingClients { get; set; }
+        public DbSet<FcmInfo> FcmInfos { get; set; }
 
         #endregion
 
@@ -41,6 +42,7 @@ namespace FC_EMDB.Database.DbContext
             modelBuilder.ApplyConfiguration(new TrainingClientConfig());
             modelBuilder.ApplyConfiguration(new PayTrainingConfig());
             modelBuilder.ApplyConfiguration(new VisitedTrainingClientConfig());
+            modelBuilder.ApplyConfiguration(new ClientsFcmInfoConfig());
         }
     }
 }
