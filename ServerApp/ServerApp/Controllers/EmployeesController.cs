@@ -17,7 +17,7 @@ namespace ServerApp.Controllers
     [ApiController]
     public class EmployeesController : ControllerBase
     {
-        private readonly DataBaseFcContext _context;
+       // private readonly DataBaseFcContext _context;
         private readonly IUnitOfWork _unitOfWork;
         public EmployeesController(IUnitOfWork uow)
         {
@@ -56,74 +56,74 @@ namespace ServerApp.Controllers
             return _unitOfWork.Employees.GetAll();
         }
 
-        // GET: api/Employees/5
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetEmployee([FromRoute] int id)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //// GET: api/Employees/5
+        //[HttpGet("{id}")]
+        //public async Task<IActionResult> GetEmployee([FromRoute] int id)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            var employee = await _context.Employees.FindAsync(id);
+        //    var employee = await _context.Employees.FindAsync(id);
 
-            if (employee == null)
-            {
-                return NotFound();
-            }
+        //    if (employee == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            return Ok(employee);
-        }
+        //    return Ok(employee);
+        //}
 
         // PUT: api/Employees/5
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutEmployee([FromRoute] int id, [FromBody] Employee employee)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //[HttpPut("{id}")]
+        //public async Task<IActionResult> PutEmployee([FromRoute] int id, [FromBody] Employee employee)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            if (id != employee.Id)
-            {
-                return BadRequest();
-            }
+        //    if (id != employee.Id)
+        //    {
+        //        return BadRequest();
+        //    }
 
-            _context.Entry(employee).State = EntityState.Modified;
+        //    _context.Entry(employee).State = EntityState.Modified;
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!EmployeeExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+        //    try
+        //    {
+        //        await _context.SaveChangesAsync();
+        //    }
+        //    catch (DbUpdateConcurrencyException)
+        //    {
+        //        if (!EmployeeExists(id))
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
 
-            return NoContent();
-        }
+        //    return NoContent();
+        //}
 
         // POST: api/Employees
-        [HttpPost]
-        public async Task<IActionResult> PostEmployee([FromBody] Employee employee)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //[HttpPost]
+        //public async Task<IActionResult> PostEmployee([FromBody] Employee employee)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            _context.Employees.Add(employee);
-            await _context.SaveChangesAsync();
+        //    _context.Employees.Add(employee);
+        //    await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetEmployee", new { id = employee.Id }, employee);
-        }
+        //    return CreatedAtAction("GetEmployee", new { id = employee.Id }, employee);
+        //}
 
         /// <summary>
         /// Получить информацию о тренере
@@ -157,29 +157,29 @@ namespace ServerApp.Controllers
 
 
         // DELETE: api/Employees/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteEmployee([FromRoute] int id)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //[HttpDelete("{id}")]
+        //public async Task<IActionResult> DeleteEmployee([FromRoute] int id)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            var employee = await _context.Employees.FindAsync(id);
-            if (employee == null)
-            {
-                return NotFound();
-            }
+        //    var employee = await _context.Employees.FindAsync(id);
+        //    if (employee == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            _context.Employees.Remove(employee);
-            await _context.SaveChangesAsync();
+        //    _context.Employees.Remove(employee);
+        //    await _context.SaveChangesAsync();
 
-            return Ok(employee);
-        }
+        //    return Ok(employee);
+        //}
 
-        private bool EmployeeExists(int id)
-        {
-            return _context.Employees.Any(e => e.Id == id);
-        }
+        //private bool EmployeeExists(int id)
+        //{
+        //    return _context.Employees.Any(e => e.Id == id);
+        //}
     }
 }

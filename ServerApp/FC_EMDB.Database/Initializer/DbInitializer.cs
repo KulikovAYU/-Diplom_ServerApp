@@ -443,12 +443,12 @@ namespace FC_EMDB.Database.Initializer
                 });
             }
 
-            //добавим тренировки клиенту по предварительной записи
-            if (!context.TrainingClients.GetAll().Any())
-            {
-                context.Clients.Get(1).TrainingClients.Add(new TrainingClient() { ClientId = context.Clients.Get(1).Id, TrainingId = context.Trainings.Get(2).Id });
-                context.Complete(); //сохраняем изменения
-            }
+            //добавим тренировки клиенту по предварительной записи //пока опустим
+            //if (!context.TrainingClients.GetAll().Any())
+            //{
+            //    context.Clients.Get(1).TrainingClients.Add(new TrainingClient() { ClientId = context.Clients.Get(1).Id, TrainingId = context.Trainings.Get(2).Id });
+            //    context.Complete(); //сохраняем изменения
+            //}
 
             //проинициализируем роли пользователей системы
             if (!context.Roles.GetAll().Any())

@@ -15,3 +15,5 @@
 /ServerApp/FC_EMDB.Database/obj
 /ServerApp/FC_EMDB/obj
 /ServerApp/NotificationsTest/obj
+/ServerApp/NotificationTestCore/bin
+/ServerApp/NotificationTestCore/obj
